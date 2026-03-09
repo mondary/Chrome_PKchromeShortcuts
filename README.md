@@ -1,6 +1,6 @@
 # PK Chrome Shortcuts
 
-![Project icon](icon.png)
+![Project icon](icon2.png)
 
 [🇫🇷 FR](README.md) · [🇬🇧 EN](README_en.md)
 
