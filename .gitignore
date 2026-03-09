@@ -1,2 +1,5 @@
 .skills
 .vscode/
+extension/*.zip
+extension/*.crx
+extension/*.pem

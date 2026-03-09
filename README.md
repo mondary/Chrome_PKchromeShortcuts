@@ -1,49 +1,52 @@
 # PK Chrome Shortcuts
 
-## Ce que fait l'extension
-- `Cmd + Option + clic` sur un lien: ouvre le lien dans une nouvelle fenetre redimensionnee (style vue fractionnee).
-- `Detach current tab` (defaut: `Cmd + Shift + U`)
-- `Search and jump` (defaut: `Cmd + Shift + K`)
-- `Search in background` (defaut: `Cmd + Shift + L`)
-- `Pin / unpin current tab` (defaut: `Option + P`)
-- `Split active tab (simulated)` via `chrome://extensions/shortcuts` + `Cmd + Option + clic` sur un lien
-- Entree `Split View reel Chrome` visible dans `chrome://extensions/shortcuts` (raccourci natif Chrome: `Cmd + Option + N`).
-- Rappels ajoutes dans `chrome://extensions/shortcuts`:
-1. `Select previous tab` (Non defini)
-2. `Select next tab` (Non defini)
-3. `Move current tab left` (rappel: `Cmd + Left`)
-4. `Move current tab right` (rappel: `Cmd + Right`)
-5. `Open Chrome Bookmarks (chrome://bookmarks)` (rappel: `Option + B`)
-6. `Open Chrome Downloads (chrome://downloads)` (Non defini)
-7. `Open Extensions (chrome://extensions)` (rappel: `Option + E`)
-8. `Open Extension Shortcuts (chrome://extensions/shortcuts)` (Non defini)
-9. `Open Chrome Flags (chrome://flags)` (rappel: `Option + F`)
-10. `Open Chrome Help (chrome://help)` (Non defini)
-11. `Open Chrome History (chrome://history)` (rappel: `Cmd + H`)
-12. `Open Chrome Settings (chrome://settings)` (rappel: `Option + S`)
-13. `Close current tab` (rappel: `Cmd + W`)
-14. `New tab` (rappel: `Cmd + T`)
-15. `Unload tab from memory` (rappel: `Option + W`)
-16. `Duplicate current tab` (rappel: `Cmd + D`)
-17. `Go back to the previous page` (rappel: `Option + Left`)
-18. `Go forward to the next page` (rappel: `Option + Right`)
-19. `Move current tab to first` (Non defini)
-20. `Move current tab to last` (Non defini)
-21. `Mute / Unmute current tab` (Non defini)
-22. `Reload tab` (rappel: `Cmd + R`)
-23. `New window` (rappel: `Cmd + N`)
-24. `New incognito window` (rappel: `Cmd + Shift + N`)
+![Project icon](icon.png)
 
-## Installation rapide
+[🇫🇷 FR](README.md) · [🇬🇧 EN](README_en.md)
+
+✨ Extension Chrome pour piloter les onglets, la navigation et le split view via raccourcis clavier.
+
+## ✅ Fonctionnalités
+- `Cmd + Option + clic` sur un lien: split view simulé (fenêtres côte à côte).
+- Détacher l’onglet actif dans une nouvelle fenêtre.
+- Navigation d’onglets: précédent/suivant, premier/dernier, dernier onglet actif.
+- Actions onglet: move, pin/unpin, mute/unmute, reload/hard reload, duplicate, unload.
+- Ouverture rapide des pages Chrome (`chrome://bookmarks`, `history`, `flags`, etc.).
+- Libellés de commandes groupés avec emojis dans `chrome://extensions/shortcuts`.
+
+## 🧠 Utilisation
+- Charge le dossier `src/` dans `chrome://extensions` (`Load unpacked`).
+- Ouvre `chrome://extensions/shortcuts` pour voir/modifier les raccourcis.
+- Le raccourci gestuel `Cmd + Option + clic` fonctionne directement sur les liens.
+
+## ⚙️ Réglages
+- Les raccourcis sont gérés nativement par Chrome dans `chrome://extensions/shortcuts`.
+- Certaines combinaisons peuvent être réservées par macOS/Chrome.
+
+## 🧾 Commandes
+- 🗂️ Onglets: new, close, duplicate, move left/right/first/last, pin, mute, reload, hard reload, unload, detach.
+- 🧭 Navigation: previous/next tab, first/last tab, last active tab, back/forward page, find, search and jump.
+- ↔️ Split: split simulé + entrée split view natif Chrome.
+- 🪟 Fenêtres: nouvelle fenêtre, nouvelle fenêtre privée.
+- 🌐 Chrome pages: bookmarks, downloads, history, settings, extensions, shortcuts, flags, help.
+
+## 📦 Build & Package
+- Générer un ZIP release local:
+```bash
+./scripts/build-release.sh
+```
+- Le ZIP est écrit dans `extension/` (`extension/pk-chrome-shortcuts-<version>.zip`).
+
+## 🧪 Installation (Chrome)
 1. Ouvre `chrome://extensions`
-2. Active le mode Developpeur
-3. Clique sur `Load unpacked`
-4. Selectionne ce dossier: `/Users/clm/Documents/GitHub/TESTS/Chrome_PKchromeShortcuts`
+2. Active `Developer mode`
+3. Clique `Load unpacked`
+4. Sélectionne `.../Chrome_PKchromeShortcuts/src`
 
-## Test rapide
-- Va sur une page web avec des liens, puis fais `Cmd + Option + clic` sur un lien.
-- Ouvre `chrome://extensions/shortcuts` puis verifie/modifie les raccourcis de l'extension.
-- Teste les commandes que tu veux depuis `chrome://extensions/shortcuts`.
+## 🧾 Changelog
+- `0.45`: structure projet en `src/` (chargeable) + `extension/` (artefacts release), scripts release/publish ajustés.
+- `0.44`: réorganisation initiale des dossiers.
+- `0.43`: hard reload par défaut en `Cmd+Shift+R`.
 
-## Notes
-- Chrome limite le manifeste a 4 raccourcis suggeres par defaut; le reste doit etre assigne manuellement dans `chrome://extensions/shortcuts`.
+## 🔗 Liens
+- EN README: [README_en.md](README_en.md)
