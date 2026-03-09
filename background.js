@@ -45,6 +45,16 @@ chrome.runtime.onMessage.addListener((message, sender) => {
 
   if (message.type === "DETACH_CURRENT_TAB") {
     detachCurrentTab(sender.tab?.id);
+    return;
+  }
+
+  if (message.type === "SELECT_PREVIOUS_TAB") {
+    selectAdjacentTab(-1);
+    return;
+  }
+
+  if (message.type === "SELECT_NEXT_TAB") {
+    selectAdjacentTab(1);
   }
 });
 
@@ -142,6 +152,16 @@ chrome.commands.onCommand.addListener(async (command) => {
 
   if (command === "reload-current-tab") {
     await reloadCurrentTab();
+    return;
+  }
+
+  if (command === "hard-reload-current-tab") {
+    await hardReloadCurrentTab();
+    return;
+  }
+
+  if (command === "find-in-page") {
+    await findInCurrentPage();
     return;
   }
 
@@ -465,6 +485,43 @@ async function reloadCurrentTab() {
   }
 }
 
+async function hardReloadCurrentTab() {
+  try {
+    const activeTab = await getActiveTab();
+    if (!activeTab?.id) {
+      return;
+    }
+
+    await chrome.tabs.reload(activeTab.id, { bypassCache: true });
+  } catch (error) {
+    console.error("[PK Shortcuts] HARD_RELOAD_CURRENT_TAB failed:", error);
+  }
+}
+
+async function findInCurrentPage() {
+  try {
+    const activeTab = await getActiveTab();
+    if (!activeTab?.id || !activeTab.url || activeTab.url.startsWith("chrome://")) {
+      return;
+    }
+
+    const promptText = "Find in page:";
+    await chrome.scripting.executeScript({
+      target: { tabId: activeTab.id },
+      func: (label) => {
+        const query = window.prompt(label);
+        if (!query || typeof query !== "string") {
+          return false;
+        }
+        return window.find(query, false, false, true, false, false, false);
+      },
+      args: [promptText]
+    });
+  } catch (error) {
+    console.error("[PK Shortcuts] FIND_IN_CURRENT_PAGE failed:", error);
+  }
+}
+
 async function unloadCurrentTab() {
   try {
     const activeTab = await getActiveTab();
@@ -570,12 +627,14 @@ async function requestUserSearchQuery() {
     return null;
   }
 
+  const promptText = "Search:";
   const [result] = await chrome.scripting.executeScript({
     target: { tabId: activeTab.id },
-    func: () => {
-      const value = window.prompt("Search:");
+    func: (label) => {
+      const value = window.prompt(label);
       return typeof value === "string" ? value.trim() : "";
-    }
+    },
+    args: [promptText]
   });
 
   const query = result?.result;

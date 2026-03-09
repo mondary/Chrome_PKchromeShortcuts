@@ -1,34 +1,66 @@
-document.addEventListener(
-  "click",
-  (event) => {
-    if (event.defaultPrevented || event.button !== 0) {
-      return;
-    }
+let lastSplitOpen = { url: "", at: 0 };
 
-    if (!event.metaKey || !event.altKey) {
-      return;
-    }
+document.addEventListener("mousedown", onSplitGesture, true);
+document.addEventListener("click", onSplitGesture, true);
+window.addEventListener("keydown", onNavigationHotkeys, true);
 
-    const anchor = getAnchorFromEvent(event);
-    if (!anchor) {
-      return;
-    }
+function onSplitGesture(event) {
+  if (event.defaultPrevented || event.button !== 0) {
+    return;
+  }
 
-    const url = anchor.href;
-    if (!url || url.startsWith("javascript:")) {
-      return;
-    }
+  if (!event.metaKey || !event.altKey) {
+    return;
+  }
 
+  const anchor = getAnchorFromEvent(event);
+  if (!anchor) {
+    return;
+  }
+
+  const url = anchor.href;
+  if (!url || url.startsWith("javascript:")) {
+    return;
+  }
+
+  // Prevent native Option+click behaviors so the extension action wins.
+  event.preventDefault();
+  event.stopPropagation();
+
+  const now = Date.now();
+  if (lastSplitOpen.url === url && now - lastSplitOpen.at < 350) {
+    return;
+  }
+
+  lastSplitOpen = { url, at: now };
+  chrome.runtime.sendMessage({
+    type: "OPEN_LINK_SPLIT",
+    url
+  });
+}
+
+function onNavigationHotkeys(event) {
+  if (event.defaultPrevented) {
+    return;
+  }
+
+  if (isEditableTarget(event.target)) {
+    return;
+  }
+
+  if (isCmdOptionArrowLeft(event)) {
     event.preventDefault();
     event.stopPropagation();
+    chrome.runtime.sendMessage({ type: "SELECT_PREVIOUS_TAB" });
+    return;
+  }
 
-    chrome.runtime.sendMessage({
-      type: "OPEN_LINK_SPLIT",
-      url
-    });
-  },
-  true
-);
+  if (isCmdOptionArrowRight(event)) {
+    event.preventDefault();
+    event.stopPropagation();
+    chrome.runtime.sendMessage({ type: "SELECT_NEXT_TAB" });
+  }
+}
 
 function getAnchorFromEvent(event) {
   const path = event.composedPath ? event.composedPath() : [];
@@ -51,4 +83,37 @@ function getAnchorFromEvent(event) {
   }
 
   return null;
+}
+
+function isEditableTarget(target) {
+  if (!(target instanceof Element)) {
+    return false;
+  }
+
+  if (target.isContentEditable) {
+    return true;
+  }
+
+  const tagName = target.tagName.toLowerCase();
+  return tagName === "input" || tagName === "textarea" || tagName === "select";
+}
+
+function isCmdOptionArrowLeft(event) {
+  return (
+    event.metaKey &&
+    event.altKey &&
+    !event.ctrlKey &&
+    !event.shiftKey &&
+    event.key === "ArrowLeft"
+  );
+}
+
+function isCmdOptionArrowRight(event) {
+  return (
+    event.metaKey &&
+    event.altKey &&
+    !event.ctrlKey &&
+    !event.shiftKey &&
+    event.key === "ArrowRight"
+  );
 }

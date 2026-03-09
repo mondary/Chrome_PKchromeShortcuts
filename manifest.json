@@ -1,8 +1,14 @@
 {
   "manifest_version": 3,
-  "name": "⚡ PK Chrome Shortcuts",
-  "version": "0.22",
-  "description": "Raccourcis Chrome: vue fractionnee simulee et detach d'onglet.",
+  "name": "__MSG_extName__",
+  "version": "0.37",
+  "description": "__MSG_extDescription__",
+  "icons": {
+    "16": "icon.png",
+    "32": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
   "permissions": [
     "tabs",
     "windows",
@@ -16,114 +22,112 @@
     "service_worker": "background.js"
   },
   "commands": {
-    "detach-current-tab": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+U",
-        "mac": "Command+Shift+U"
-      },
-      "description": "Detacher l'onglet actif dans une nouvelle fenetre"
+    "navigate-last-active-tab": {
+      "description": "__MSG_cmd_navigate_last_active_tab_desc__"
     },
     "select-previous-tab": {
-      "description": "Select previous tab"
+      "description": "__MSG_cmd_select_previous_tab_desc__"
     },
     "select-next-tab": {
-      "description": "Select next tab"
-    },
-    "move-current-tab-left": {
-      "description": "Move current tab left (rappel: Cmd+Left)"
-    },
-    "move-current-tab-right": {
-      "description": "Move current tab right (rappel: Cmd+Right)"
-    },
-    "move-current-tab-first": {
-      "description": "Move current tab to first"
-    },
-    "move-current-tab-last": {
-      "description": "Move current tab to last"
-    },
-    "close-current-tab": {
-      "description": "Close current tab (rappel: Cmd+W)"
-    },
-    "new-tab": {
-      "description": "New tab (rappel: Cmd+T)"
-    },
-    "new-window": {
-      "description": "New window (rappel: Cmd+N)"
-    },
-    "new-incognito-window": {
-      "description": "New incognito window (rappel: Cmd+Shift+N)"
-    },
-    "duplicate-current-tab": {
-      "description": "Duplicate current tab (rappel: Cmd+D)"
-    },
-    "reload-current-tab": {
-      "description": "Reload tab (rappel: Cmd+R)"
-    },
-    "unload-current-tab": {
-      "description": "Unload tab from memory (rappel: Alt+W)"
+      "description": "__MSG_cmd_select_next_tab_desc__"
     },
     "go-back-page": {
-      "description": "Go back to the previous page (rappel: Alt+Left)"
+      "description": "__MSG_cmd_go_back_page_desc__"
     },
     "go-forward-page": {
-      "description": "Go forward to the next page (rappel: Alt+Right)"
+      "description": "__MSG_cmd_go_forward_page_desc__"
     },
-    "split-active-tab-simulated": {
-      "description": "Simuler un split view avec l'onglet actif"
-    },
-    "native-split-view": {
-      "description": "Split View reel Chrome (raccourci natif Chrome: Cmd+Option+N)"
-    },
-    "navigate-last-active-tab": {
-      "description": "Navigate to last active tab"
-    },
-    "toggle-pin-tab": {
-      "suggested_key": {
-        "default": "Alt+P",
-        "mac": "Alt+P"
-      },
-      "description": "Pin / unpin active tab"
-    },
-    "toggle-mute-tab": {
-      "description": "Mute / Unmute current tab"
+    "find-in-page": {
+      "description": "__MSG_cmd_find_in_page_desc__"
     },
     "search-and-jump": {
       "suggested_key": {
-        "default": "Ctrl+Shift+K",
-        "mac": "Command+Shift+K"
+        "default": "Ctrl+Shift+A",
+        "mac": "Command+Shift+A"
       },
-      "description": "Search and jump"
+      "description": "__MSG_cmd_search_and_jump_desc__"
     },
     "search-in-background": {
+      "description": "__MSG_cmd_search_in_background_desc__"
+    },
+    "new-tab": {
+      "description": "__MSG_cmd_new_tab_desc__"
+    },
+    "close-current-tab": {
+      "description": "__MSG_cmd_close_current_tab_desc__"
+    },
+    "duplicate-current-tab": {
+      "description": "__MSG_cmd_duplicate_current_tab_desc__"
+    },
+    "move-current-tab-left": {
+      "description": "__MSG_cmd_move_current_tab_left_desc__"
+    },
+    "move-current-tab-right": {
+      "description": "__MSG_cmd_move_current_tab_right_desc__"
+    },
+    "move-current-tab-first": {
+      "description": "__MSG_cmd_move_current_tab_first_desc__"
+    },
+    "move-current-tab-last": {
+      "description": "__MSG_cmd_move_current_tab_last_desc__"
+    },
+    "toggle-pin-tab": {
+      "description": "__MSG_cmd_toggle_pin_tab_desc__"
+    },
+    "toggle-mute-tab": {
+      "description": "__MSG_cmd_toggle_mute_tab_desc__"
+    },
+    "reload-current-tab": {
+      "description": "__MSG_cmd_reload_current_tab_desc__"
+    },
+    "hard-reload-current-tab": {
+      "description": "__MSG_cmd_hard_reload_current_tab_desc__"
+    },
+    "unload-current-tab": {
+      "description": "__MSG_cmd_unload_current_tab_desc__"
+    },
+    "detach-current-tab": {
       "suggested_key": {
-        "default": "Ctrl+Shift+L",
-        "mac": "Command+Shift+L"
+        "default": "Ctrl+Shift+U",
+        "mac": "Ctrl+Shift+U"
       },
-      "description": "Search in background"
+      "description": "__MSG_cmd_detach_current_tab_desc__"
+    },
+    "split-active-tab-simulated": {
+      "description": "__MSG_cmd_split_active_tab_simulated_desc__"
+    },
+    "native-split-view": {
+      "description": "__MSG_cmd_native_split_view_desc__"
+    },
+    "new-window": {
+      "description": "__MSG_cmd_new_window_desc__"
+    },
+    "new-incognito-window": {
+      "description": "__MSG_cmd_new_incognito_window_desc__"
     },
     "open-chrome-bookmarks": {
-      "description": "Open Chrome Bookmarks (chrome://bookmarks) (rappel: Alt+B)"
+      "description": "__MSG_cmd_open_chrome_bookmarks_desc__"
     },
     "open-chrome-downloads": {
-      "description": "Open Chrome Downloads (chrome://downloads)"
-    },
-    "open-chrome-extensions": {
-      "description": "Open Extensions (chrome://extensions) (rappel: Alt+E)"
-    },
-    "open-extension-shortcuts": {
-      "description": "Open Extension Shortcuts (chrome://extensions/shortcuts)"
-    },
-    "open-chrome-flags": {
-      "description": "Open Chrome Flags (chrome://flags) (rappel: Alt+F)"
-    },
-    "open-chrome-help": {
-      "description": "Open Chrome Help (chrome://help)"
+      "description": "__MSG_cmd_open_chrome_downloads_desc__"
     },
     "open-chrome-history": {
-      "description": "Open Chrome History (chrome://history) (rappel: Cmd+H)"
+      "description": "__MSG_cmd_open_chrome_history_desc__"
     },
     "open-chrome-settings": {
-      "description": "Open Chrome Settings (chrome://settings) (rappel: Alt+S)"
+      "description": "__MSG_cmd_open_chrome_settings_desc__"
+    },
+    "open-chrome-extensions": {
+      "description": "__MSG_cmd_open_chrome_extensions_desc__"
+    },
+    "open-extension-shortcuts": {
+      "description": "__MSG_cmd_open_extension_shortcuts_desc__"
+    },
+    "open-chrome-flags": {
+      "description": "__MSG_cmd_open_chrome_flags_desc__"
+    },
+    "open-chrome-help": {
+      "description": "__MSG_cmd_open_chrome_help_desc__"
     }
   },
   "content_scripts": [
@@ -136,5 +140,6 @@
       ],
       "run_at": "document_start"
     }
-  ]
+  ],
+  "default_locale": "en"
 }
