@@ -53,6 +53,13 @@ chrome.windows.onRemoved.addListener(() => {
 
 scheduleBadgeRefresh();
 
+const actionApi = chrome?.action || chrome?.browserAction;
+if (actionApi?.onClicked) {
+  actionApi.onClicked.addListener(() => {
+    void openChromeUrl("chrome://extensions/shortcuts");
+  });
+}
+
 chrome.runtime.onMessage.addListener((message, sender) => {
   if (!message || !message.type) {
     return;
