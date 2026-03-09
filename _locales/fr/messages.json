@@ -1,0 +1,113 @@
+{
+  "extName": {
+    "message": "⚡ PK Chrome Shortcuts"
+  },
+  "extDescription": {
+    "message": "Raccourcis Chrome : split simule et utilitaires d'onglets."
+  },
+  "cmd_detach_current_tab_desc": {
+    "message": "🗂️ Detacher l'onglet actif\nPar defaut : Cmd+Shift+U"
+  },
+  "cmd_select_previous_tab_desc": {
+    "message": "🧭 Selectionner l'onglet precedent\nPar defaut : Cmd+Option+Left"
+  },
+  "cmd_select_next_tab_desc": {
+    "message": "🧭 Selectionner l'onglet suivant\nPar defaut : Cmd+Option+Right"
+  },
+  "cmd_move_current_tab_left_desc": {
+    "message": "🗂️ Deplacer l'onglet actif a gauche\nPar defaut : Cmd+Left"
+  },
+  "cmd_move_current_tab_right_desc": {
+    "message": "🗂️ Deplacer l'onglet actif a droite\nPar defaut : Cmd+Right"
+  },
+  "cmd_move_current_tab_first_desc": {
+    "message": "🗂️ Deplacer l'onglet actif en premier\nPar defaut : Non defini"
+  },
+  "cmd_move_current_tab_last_desc": {
+    "message": "🗂️ Deplacer l'onglet actif en dernier\nPar defaut : Non defini"
+  },
+  "cmd_close_current_tab_desc": {
+    "message": "🗂️ Fermer l'onglet actif\nPar defaut : Cmd+W"
+  },
+  "cmd_new_tab_desc": {
+    "message": "🗂️ Nouvel onglet\nPar defaut : Cmd+T"
+  },
+  "cmd_new_window_desc": {
+    "message": "🪟 Nouvelle fenetre\nPar defaut : Cmd+N"
+  },
+  "cmd_new_incognito_window_desc": {
+    "message": "🪟 Nouvelle fenetre de navigation privee\nPar defaut : Cmd+Shift+N"
+  },
+  "cmd_duplicate_current_tab_desc": {
+    "message": "🗂️ Dupliquer l'onglet actif\nPar defaut : Cmd+D"
+  },
+  "cmd_reload_current_tab_desc": {
+    "message": "🗂️ Recharger l'onglet\nPar defaut : Cmd+R"
+  },
+  "cmd_hard_reload_current_tab_desc": {
+    "message": "🗂️ Recharger l'onglet (force)\nPar defaut : Cmd+Shift+R"
+  },
+  "cmd_find_in_page_desc": {
+    "message": "🧭 Rechercher dans la page\nPar defaut : Cmd+F"
+  },
+  "cmd_unload_current_tab_desc": {
+    "message": "🗂️ Decharger l'onglet de la memoire\nPar defaut : Alt+W"
+  },
+  "cmd_go_back_page_desc": {
+    "message": "🧭 Revenir a la page precedente\nPar defaut : Alt+Left"
+  },
+  "cmd_go_forward_page_desc": {
+    "message": "🧭 Aller a la page suivante\nPar defaut : Alt+Right"
+  },
+  "cmd_split_active_tab_simulated_desc": {
+    "message": "↔️ Split de l'onglet actif (simule)\nPar defaut : Cmd+Option+Click"
+  },
+  "cmd_native_split_view_desc": {
+    "message": "↔️ Split View natif Chrome\nPar defaut : Cmd+Option+N"
+  },
+  "cmd_navigate_last_active_tab_desc": {
+    "message": "🧭 Aller au dernier onglet actif\nPar defaut : Non defini"
+  },
+  "cmd_select_first_tab_desc": {
+    "message": "🧭 Aller au premier onglet\nPar defaut : Non defini"
+  },
+  "cmd_select_last_tab_desc": {
+    "message": "🧭 Aller au dernier onglet\nPar defaut : Non defini"
+  },
+  "cmd_toggle_pin_tab_desc": {
+    "message": "🗂️ Epingler / desepingler l'onglet actif\nPar defaut : Cmd+Shift+P"
+  },
+  "cmd_toggle_mute_tab_desc": {
+    "message": "🗂️ Couper / activer le son de l'onglet actif\nPar defaut : Non defini"
+  },
+  "cmd_search_and_jump_desc": {
+    "message": "🧭 Rechercher et aller\nPar defaut : Cmd+Shift+A"
+  },
+  "cmd_search_in_background_desc": {
+    "message": "🧭 Rechercher en arriere-plan\nPar defaut : Cmd+Shift+L"
+  },
+  "cmd_open_chrome_bookmarks_desc": {
+    "message": "🌐 Ouvrir les favoris Chrome (chrome://bookmarks)\nPar defaut : Alt+B"
+  },
+  "cmd_open_chrome_downloads_desc": {
+    "message": "🌐 Ouvrir les telechargements Chrome (chrome://downloads)\nPar defaut : Non defini"
+  },
+  "cmd_open_chrome_extensions_desc": {
+    "message": "🌐 Ouvrir les extensions (chrome://extensions)\nPar defaut : Alt+E"
+  },
+  "cmd_open_extension_shortcuts_desc": {
+    "message": "🌐 Ouvrir les raccourcis des extensions (chrome://extensions/shortcuts)\nPar defaut : Non defini"
+  },
+  "cmd_open_chrome_flags_desc": {
+    "message": "🌐 Ouvrir les flags Chrome (chrome://flags)\nPar defaut : Alt+F"
+  },
+  "cmd_open_chrome_help_desc": {
+    "message": "🌐 Ouvrir l'aide Chrome (chrome://help)\nPar defaut : Non defini"
+  },
+  "cmd_open_chrome_history_desc": {
+    "message": "🌐 Ouvrir l'historique Chrome (chrome://history)\nPar defaut : Alt+H"
+  },
+  "cmd_open_chrome_settings_desc": {
+    "message": "🌐 Ouvrir les parametres Chrome (chrome://settings)\nPar defaut : Alt+S"
+  }
+}

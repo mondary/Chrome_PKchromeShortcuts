@@ -7,6 +7,7 @@
 ✨ Extension Chrome pour piloter les onglets, la navigation et le split view via raccourcis clavier.
 
 ## ✅ Fonctionnalités
+- Badge sur l’icône extension: compteur du nombre total d’onglets ouverts.
 - `Cmd + Option + clic` sur un lien: split view simulé (fenêtres côte à côte).
 - Détacher l’onglet actif dans une nouvelle fenêtre.
 - Navigation d’onglets: précédent/suivant, premier/dernier, dernier onglet actif.
@@ -44,6 +45,8 @@
 4. Sélectionne `.../Chrome_PKchromeShortcuts/src`
 
 ## 🧾 Changelog
+- `1.1`: correction compatibilité badge (fallback `action/browserAction`) + support manifeste en racine.
+- `1.0`: ajout du badge compteur d’onglets sur l’icône extension.
 - `0.45`: structure projet en `src/` (chargeable) + `extension/` (artefacts release), scripts release/publish ajustés.
 - `0.44`: réorganisation initiale des dossiers.
 - `0.43`: hard reload par défaut en `Cmd+Shift+R`.

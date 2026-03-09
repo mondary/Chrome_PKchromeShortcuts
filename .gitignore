@@ -1,5 +1,7 @@
 .skills
 .vscode/
+.env
+.DS_Store
 extension/*.zip
 extension/*.crx
 extension/*.pem

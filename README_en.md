@@ -7,6 +7,7 @@
 ✨ Chrome extension to control tabs, navigation, and split view with keyboard shortcuts.
 
 ## ✅ Features
+- Badge on extension icon: live counter of total open tabs.
 - `Cmd + Option + Click` on a link: simulated split view (side-by-side windows).
 - Detach current tab into a new window.
 - Tab navigation: previous/next, first/last, last active tab.
@@ -44,6 +45,8 @@
 4. Select `.../Chrome_PKchromeShortcuts/src`
 
 ## 🧾 Changelog
+- `1.1`: fixed badge API compatibility (`action/browserAction` fallback) + root manifest support.
+- `1.0`: added tab count badge on extension icon.
 - `0.45`: project structure finalized as `src/` (loadable) + `extension/` (release artifacts), release/publish scripts updated.
 - `0.44`: initial folder restructuring.
 - `0.43`: hard reload default set to `Cmd+Shift+R`.

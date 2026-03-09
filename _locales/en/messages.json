@@ -1,0 +1,113 @@
+{
+  "extName": {
+    "message": "⚡ PK Chrome Shortcuts"
+  },
+  "extDescription": {
+    "message": "Chrome shortcuts: simulated split view and tab utilities."
+  },
+  "cmd_detach_current_tab_desc": {
+    "message": "🗂️ Detach current tab\nDefault: Cmd+Shift+U"
+  },
+  "cmd_select_previous_tab_desc": {
+    "message": "🧭 Select previous tab\nDefault: Cmd+Option+Left"
+  },
+  "cmd_select_next_tab_desc": {
+    "message": "🧭 Select next tab\nDefault: Cmd+Option+Right"
+  },
+  "cmd_move_current_tab_left_desc": {
+    "message": "🗂️ Move current tab left\nDefault: Cmd+Left"
+  },
+  "cmd_move_current_tab_right_desc": {
+    "message": "🗂️ Move current tab right\nDefault: Cmd+Right"
+  },
+  "cmd_move_current_tab_first_desc": {
+    "message": "🗂️ Move current tab to first\nDefault: Not set"
+  },
+  "cmd_move_current_tab_last_desc": {
+    "message": "🗂️ Move current tab to last\nDefault: Not set"
+  },
+  "cmd_close_current_tab_desc": {
+    "message": "🗂️ Close current tab\nDefault: Cmd+W"
+  },
+  "cmd_new_tab_desc": {
+    "message": "🗂️ New tab\nDefault: Cmd+T"
+  },
+  "cmd_new_window_desc": {
+    "message": "🪟 New window\nDefault: Cmd+N"
+  },
+  "cmd_new_incognito_window_desc": {
+    "message": "🪟 New incognito window\nDefault: Cmd+Shift+N"
+  },
+  "cmd_duplicate_current_tab_desc": {
+    "message": "🗂️ Duplicate current tab\nDefault: Cmd+D"
+  },
+  "cmd_reload_current_tab_desc": {
+    "message": "🗂️ Reload tab\nDefault: Cmd+R"
+  },
+  "cmd_hard_reload_current_tab_desc": {
+    "message": "🗂️ Reload tab (hard)\nDefault: Cmd+Shift+R"
+  },
+  "cmd_find_in_page_desc": {
+    "message": "🧭 Find in current page\nDefault: Cmd+F"
+  },
+  "cmd_unload_current_tab_desc": {
+    "message": "🗂️ Unload tab from memory\nDefault: Alt+W"
+  },
+  "cmd_go_back_page_desc": {
+    "message": "🧭 Go back to previous page\nDefault: Alt+Left"
+  },
+  "cmd_go_forward_page_desc": {
+    "message": "🧭 Go forward to next page\nDefault: Alt+Right"
+  },
+  "cmd_split_active_tab_simulated_desc": {
+    "message": "↔️ Split active tab (simulated)\nDefault: Cmd+Option+Click"
+  },
+  "cmd_native_split_view_desc": {
+    "message": "↔️ Native Chrome Split View\nDefault: Cmd+Option+N"
+  },
+  "cmd_navigate_last_active_tab_desc": {
+    "message": "🧭 Navigate to last active tab\nDefault: Not set"
+  },
+  "cmd_select_first_tab_desc": {
+    "message": "🧭 Select first tab\nDefault: Not set"
+  },
+  "cmd_select_last_tab_desc": {
+    "message": "🧭 Select last tab\nDefault: Not set"
+  },
+  "cmd_toggle_pin_tab_desc": {
+    "message": "🗂️ Pin / unpin current tab\nDefault: Cmd+Shift+P"
+  },
+  "cmd_toggle_mute_tab_desc": {
+    "message": "🗂️ Mute / unmute current tab\nDefault: Not set"
+  },
+  "cmd_search_and_jump_desc": {
+    "message": "🧭 Search and jump\nDefault: Cmd+Shift+A"
+  },
+  "cmd_search_in_background_desc": {
+    "message": "🧭 Search in background\nDefault: Cmd+Shift+L"
+  },
+  "cmd_open_chrome_bookmarks_desc": {
+    "message": "🌐 Open Chrome Bookmarks (chrome://bookmarks)\nDefault: Alt+B"
+  },
+  "cmd_open_chrome_downloads_desc": {
+    "message": "🌐 Open Chrome Downloads (chrome://downloads)\nDefault: Not set"
+  },
+  "cmd_open_chrome_extensions_desc": {
+    "message": "🌐 Open Extensions (chrome://extensions)\nDefault: Alt+E"
+  },
+  "cmd_open_extension_shortcuts_desc": {
+    "message": "🌐 Open Extension Shortcuts (chrome://extensions/shortcuts)\nDefault: Not set"
+  },
+  "cmd_open_chrome_flags_desc": {
+    "message": "🌐 Open Chrome Flags (chrome://flags)\nDefault: Alt+F"
+  },
+  "cmd_open_chrome_help_desc": {
+    "message": "🌐 Open Chrome Help (chrome://help)\nDefault: Not set"
+  },
+  "cmd_open_chrome_history_desc": {
+    "message": "🌐 Open Chrome History (chrome://history)\nDefault: Alt+H"
+  },
+  "cmd_open_chrome_settings_desc": {
+    "message": "🌐 Open Chrome Settings (chrome://settings)\nDefault: Alt+S"
+  }
+}
