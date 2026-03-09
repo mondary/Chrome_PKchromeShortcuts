@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "⚡ PK Chrome Shortcuts",
-  "version": "0.21",
+  "version": "0.22",
   "description": "Raccourcis Chrome: vue fractionnee simulee et detach d'onglet.",
   "permissions": [
     "tabs",
@@ -23,6 +23,51 @@
       },
       "description": "Detacher l'onglet actif dans une nouvelle fenetre"
     },
+    "select-previous-tab": {
+      "description": "Select previous tab"
+    },
+    "select-next-tab": {
+      "description": "Select next tab"
+    },
+    "move-current-tab-left": {
+      "description": "Move current tab left (rappel: Cmd+Left)"
+    },
+    "move-current-tab-right": {
+      "description": "Move current tab right (rappel: Cmd+Right)"
+    },
+    "move-current-tab-first": {
+      "description": "Move current tab to first"
+    },
+    "move-current-tab-last": {
+      "description": "Move current tab to last"
+    },
+    "close-current-tab": {
+      "description": "Close current tab (rappel: Cmd+W)"
+    },
+    "new-tab": {
+      "description": "New tab (rappel: Cmd+T)"
+    },
+    "new-window": {
+      "description": "New window (rappel: Cmd+N)"
+    },
+    "new-incognito-window": {
+      "description": "New incognito window (rappel: Cmd+Shift+N)"
+    },
+    "duplicate-current-tab": {
+      "description": "Duplicate current tab (rappel: Cmd+D)"
+    },
+    "reload-current-tab": {
+      "description": "Reload tab (rappel: Cmd+R)"
+    },
+    "unload-current-tab": {
+      "description": "Unload tab from memory (rappel: Alt+W)"
+    },
+    "go-back-page": {
+      "description": "Go back to the previous page (rappel: Alt+Left)"
+    },
+    "go-forward-page": {
+      "description": "Go forward to the next page (rappel: Alt+Right)"
+    },
     "split-active-tab-simulated": {
       "description": "Simuler un split view avec l'onglet actif"
     },
@@ -34,10 +79,13 @@
     },
     "toggle-pin-tab": {
       "suggested_key": {
-        "default": "Ctrl+Shift+P",
-        "mac": "Command+Shift+P"
+        "default": "Alt+P",
+        "mac": "Alt+P"
       },
       "description": "Pin / unpin active tab"
+    },
+    "toggle-mute-tab": {
+      "description": "Mute / Unmute current tab"
     },
     "search-and-jump": {
       "suggested_key": {
@@ -52,6 +100,30 @@
         "mac": "Command+Shift+L"
       },
       "description": "Search in background"
+    },
+    "open-chrome-bookmarks": {
+      "description": "Open Chrome Bookmarks (chrome://bookmarks) (rappel: Alt+B)"
+    },
+    "open-chrome-downloads": {
+      "description": "Open Chrome Downloads (chrome://downloads)"
+    },
+    "open-chrome-extensions": {
+      "description": "Open Extensions (chrome://extensions) (rappel: Alt+E)"
+    },
+    "open-extension-shortcuts": {
+      "description": "Open Extension Shortcuts (chrome://extensions/shortcuts)"
+    },
+    "open-chrome-flags": {
+      "description": "Open Chrome Flags (chrome://flags) (rappel: Alt+F)"
+    },
+    "open-chrome-help": {
+      "description": "Open Chrome Help (chrome://help)"
+    },
+    "open-chrome-history": {
+      "description": "Open Chrome History (chrome://history) (rappel: Cmd+H)"
+    },
+    "open-chrome-settings": {
+      "description": "Open Chrome Settings (chrome://settings) (rappel: Alt+S)"
     }
   },
   "content_scripts": [

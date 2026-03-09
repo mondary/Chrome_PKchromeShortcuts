@@ -82,6 +82,126 @@ chrome.commands.onCommand.addListener(async (command) => {
 
   if (command === "search-in-background") {
     await searchInBackground();
+    return;
+  }
+
+  if (command === "select-previous-tab") {
+    await selectAdjacentTab(-1);
+    return;
+  }
+
+  if (command === "select-next-tab") {
+    await selectAdjacentTab(1);
+    return;
+  }
+
+  if (command === "move-current-tab-left") {
+    await moveCurrentTabBy(-1);
+    return;
+  }
+
+  if (command === "move-current-tab-right") {
+    await moveCurrentTabBy(1);
+    return;
+  }
+
+  if (command === "move-current-tab-first") {
+    await moveCurrentTabToBoundary("first");
+    return;
+  }
+
+  if (command === "move-current-tab-last") {
+    await moveCurrentTabToBoundary("last");
+    return;
+  }
+
+  if (command === "close-current-tab") {
+    await closeCurrentTab();
+    return;
+  }
+
+  if (command === "new-tab") {
+    await createNewTab();
+    return;
+  }
+
+  if (command === "new-window") {
+    await chrome.windows.create({ focused: true });
+    return;
+  }
+
+  if (command === "new-incognito-window") {
+    await chrome.windows.create({ focused: true, incognito: true });
+    return;
+  }
+
+  if (command === "duplicate-current-tab") {
+    await duplicateCurrentTab();
+    return;
+  }
+
+  if (command === "reload-current-tab") {
+    await reloadCurrentTab();
+    return;
+  }
+
+  if (command === "unload-current-tab") {
+    await unloadCurrentTab();
+    return;
+  }
+
+  if (command === "go-back-page") {
+    await goBackCurrentTab();
+    return;
+  }
+
+  if (command === "go-forward-page") {
+    await goForwardCurrentTab();
+    return;
+  }
+
+  if (command === "toggle-mute-tab") {
+    await toggleMuteActiveTab();
+    return;
+  }
+
+  if (command === "open-chrome-bookmarks") {
+    await openChromeUrl("chrome://bookmarks");
+    return;
+  }
+
+  if (command === "open-chrome-downloads") {
+    await openChromeUrl("chrome://downloads");
+    return;
+  }
+
+  if (command === "open-chrome-extensions") {
+    await openChromeUrl("chrome://extensions");
+    return;
+  }
+
+  if (command === "open-extension-shortcuts") {
+    await openChromeUrl("chrome://extensions/shortcuts");
+    return;
+  }
+
+  if (command === "open-chrome-flags") {
+    await openChromeUrl("chrome://flags");
+    return;
+  }
+
+  if (command === "open-chrome-help") {
+    await openChromeUrl("chrome://help");
+    return;
+  }
+
+  if (command === "open-chrome-history") {
+    await openChromeUrl("chrome://history");
+    return;
+  }
+
+  if (command === "open-chrome-settings") {
+    await openChromeUrl("chrome://settings");
   }
 });
 
@@ -200,7 +320,7 @@ async function navigateToLastActiveTab() {
 
 async function togglePinActiveTab() {
   try {
-    const [activeTab] = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
+    const activeTab = await getActiveTab();
     if (!activeTab?.id) {
       return;
     }
@@ -208,6 +328,192 @@ async function togglePinActiveTab() {
     await chrome.tabs.update(activeTab.id, { pinned: !Boolean(activeTab.pinned) });
   } catch (error) {
     console.error("[PK Shortcuts] TOGGLE_PIN_TAB failed:", error);
+  }
+}
+
+async function toggleMuteActiveTab() {
+  try {
+    const activeTab = await getActiveTab();
+    if (!activeTab?.id) {
+      return;
+    }
+
+    const isMuted = Boolean(activeTab.mutedInfo?.muted);
+    await chrome.tabs.update(activeTab.id, { muted: !isMuted });
+  } catch (error) {
+    console.error("[PK Shortcuts] TOGGLE_MUTE_TAB failed:", error);
+  }
+}
+
+async function selectAdjacentTab(direction) {
+  try {
+    const activeTab = await getActiveTab();
+    if (!activeTab?.windowId || typeof activeTab.index !== "number") {
+      return;
+    }
+
+    const tabs = await chrome.tabs.query({ windowId: activeTab.windowId });
+    if (!tabs || tabs.length <= 1) {
+      return;
+    }
+
+    const sorted = [...tabs].sort((a, b) => (a.index || 0) - (b.index || 0));
+    const currentIndex = sorted.findIndex((tab) => tab.id === activeTab.id);
+    if (currentIndex < 0) {
+      return;
+    }
+
+    const targetIndex = (currentIndex + direction + sorted.length) % sorted.length;
+    const targetTab = sorted[targetIndex];
+    if (targetTab?.id) {
+      await chrome.tabs.update(targetTab.id, { active: true });
+    }
+  } catch (error) {
+    console.error("[PK Shortcuts] SELECT_ADJACENT_TAB failed:", error);
+  }
+}
+
+async function moveCurrentTabBy(delta) {
+  try {
+    const activeTab = await getActiveTab();
+    if (!activeTab?.id || !activeTab.windowId || typeof activeTab.index !== "number") {
+      return;
+    }
+
+    const tabs = await chrome.tabs.query({ windowId: activeTab.windowId });
+    const lastIndex = Math.max(0, tabs.length - 1);
+    const targetIndex = Math.max(0, Math.min(lastIndex, activeTab.index + delta));
+    if (targetIndex === activeTab.index) {
+      return;
+    }
+
+    await chrome.tabs.move(activeTab.id, { index: targetIndex });
+    await chrome.tabs.update(activeTab.id, { active: true });
+  } catch (error) {
+    console.error("[PK Shortcuts] MOVE_CURRENT_TAB_BY failed:", error);
+  }
+}
+
+async function moveCurrentTabToBoundary(boundary) {
+  try {
+    const activeTab = await getActiveTab();
+    if (!activeTab?.id || !activeTab.windowId) {
+      return;
+    }
+
+    const tabs = await chrome.tabs.query({ windowId: activeTab.windowId });
+    if (!tabs || tabs.length <= 1) {
+      return;
+    }
+
+    const targetIndex = boundary === "first" ? 0 : tabs.length - 1;
+    await chrome.tabs.move(activeTab.id, { index: targetIndex });
+    await chrome.tabs.update(activeTab.id, { active: true });
+  } catch (error) {
+    console.error("[PK Shortcuts] MOVE_CURRENT_TAB_TO_BOUNDARY failed:", error);
+  }
+}
+
+async function closeCurrentTab() {
+  try {
+    const activeTab = await getActiveTab();
+    if (!activeTab?.id) {
+      return;
+    }
+
+    await chrome.tabs.remove(activeTab.id);
+  } catch (error) {
+    console.error("[PK Shortcuts] CLOSE_CURRENT_TAB failed:", error);
+  }
+}
+
+async function createNewTab() {
+  try {
+    const activeTab = await getActiveTab();
+    await chrome.tabs.create({
+      active: true,
+      windowId: activeTab?.windowId
+    });
+  } catch (error) {
+    console.error("[PK Shortcuts] NEW_TAB failed:", error);
+  }
+}
+
+async function duplicateCurrentTab() {
+  try {
+    const activeTab = await getActiveTab();
+    if (!activeTab?.id) {
+      return;
+    }
+
+    await chrome.tabs.duplicate(activeTab.id);
+  } catch (error) {
+    console.error("[PK Shortcuts] DUPLICATE_CURRENT_TAB failed:", error);
+  }
+}
+
+async function reloadCurrentTab() {
+  try {
+    const activeTab = await getActiveTab();
+    if (!activeTab?.id) {
+      return;
+    }
+
+    await chrome.tabs.reload(activeTab.id);
+  } catch (error) {
+    console.error("[PK Shortcuts] RELOAD_CURRENT_TAB failed:", error);
+  }
+}
+
+async function unloadCurrentTab() {
+  try {
+    const activeTab = await getActiveTab();
+    if (!activeTab?.id) {
+      return;
+    }
+
+    await chrome.tabs.discard(activeTab.id);
+  } catch (error) {
+    console.error("[PK Shortcuts] UNLOAD_CURRENT_TAB failed:", error);
+  }
+}
+
+async function goBackCurrentTab() {
+  try {
+    const activeTab = await getActiveTab();
+    if (!activeTab?.id || typeof chrome.tabs.goBack !== "function") {
+      return;
+    }
+
+    await chrome.tabs.goBack(activeTab.id);
+  } catch (error) {
+    console.error("[PK Shortcuts] GO_BACK_PAGE failed:", error);
+  }
+}
+
+async function goForwardCurrentTab() {
+  try {
+    const activeTab = await getActiveTab();
+    if (!activeTab?.id || typeof chrome.tabs.goForward !== "function") {
+      return;
+    }
+
+    await chrome.tabs.goForward(activeTab.id);
+  } catch (error) {
+    console.error("[PK Shortcuts] GO_FORWARD_PAGE failed:", error);
+  }
+}
+
+async function openChromeUrl(url) {
+  try {
+    const activeTab = await getActiveTab();
+    await chrome.tabs.create({
+      url,
+      active: true,
+      windowId: activeTab?.windowId
+    });
+  } catch (error) {
+    console.error("[PK Shortcuts] OPEN_CHROME_URL failed:", error);
   }
 }
 
@@ -300,6 +606,11 @@ function toSearchUrl(query) {
       : `https://${query}`;
   }
   return `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+}
+
+async function getActiveTab() {
+  const [activeTab] = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
+  return activeTab || null;
 }
 
 async function logCommandShortcuts() {
