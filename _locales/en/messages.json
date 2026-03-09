@@ -6,102 +6,108 @@
     "message": "Chrome shortcuts: simulated split view and tab utilities."
   },
   "cmd_detach_current_tab_desc": {
-    "message": "[Tabs] Detach current tab\nDefault: Cmd+Shift+U"
+    "message": "🗂️ Detach current tab\nDefault: Cmd+Shift+U"
   },
   "cmd_select_previous_tab_desc": {
-    "message": "[Navigate] Select previous tab\nDefault: Cmd+Option+Left"
+    "message": "🧭 Select previous tab\nDefault: Cmd+Option+Left"
   },
   "cmd_select_next_tab_desc": {
-    "message": "[Navigate] Select next tab\nDefault: Cmd+Option+Right"
+    "message": "🧭 Select next tab\nDefault: Cmd+Option+Right"
   },
   "cmd_move_current_tab_left_desc": {
-    "message": "[Tabs] Move current tab left\nDefault: Cmd+Left"
+    "message": "🗂️ Move current tab left\nDefault: Cmd+Left"
   },
   "cmd_move_current_tab_right_desc": {
-    "message": "[Tabs] Move current tab right\nDefault: Cmd+Right"
+    "message": "🗂️ Move current tab right\nDefault: Cmd+Right"
   },
   "cmd_move_current_tab_first_desc": {
-    "message": "[Tabs] Move current tab to first\nDefault: Not set"
+    "message": "🗂️ Move current tab to first\nDefault: Not set"
   },
   "cmd_move_current_tab_last_desc": {
-    "message": "[Tabs] Move current tab to last\nDefault: Not set"
+    "message": "🗂️ Move current tab to last\nDefault: Not set"
   },
   "cmd_close_current_tab_desc": {
-    "message": "[Tabs] Close current tab\nDefault: Cmd+W"
+    "message": "🗂️ Close current tab\nDefault: Cmd+W"
   },
   "cmd_new_tab_desc": {
-    "message": "[Tabs] New tab\nDefault: Cmd+T"
+    "message": "🗂️ New tab\nDefault: Cmd+T"
   },
   "cmd_new_window_desc": {
-    "message": "[Windows] New window\nDefault: Cmd+N"
+    "message": "🪟 New window\nDefault: Cmd+N"
   },
   "cmd_new_incognito_window_desc": {
-    "message": "[Windows] New incognito window\nDefault: Cmd+Shift+N"
+    "message": "🪟 New incognito window\nDefault: Cmd+Shift+N"
   },
   "cmd_duplicate_current_tab_desc": {
-    "message": "[Tabs] Duplicate current tab\nDefault: Cmd+D"
+    "message": "🗂️ Duplicate current tab\nDefault: Cmd+D"
   },
   "cmd_reload_current_tab_desc": {
-    "message": "[Tabs] Reload tab\nDefault: Cmd+R"
+    "message": "🗂️ Reload tab\nDefault: Cmd+R"
   },
   "cmd_hard_reload_current_tab_desc": {
-    "message": "[Tabs] Reload tab (hard)\nDefault: Not set"
+    "message": "🗂️ Reload tab (hard)\nDefault: Cmd+Shift+R"
   },
   "cmd_find_in_page_desc": {
-    "message": "[Navigate] Find in current page\nDefault: Cmd+F"
+    "message": "🧭 Find in current page\nDefault: Cmd+F"
   },
   "cmd_unload_current_tab_desc": {
-    "message": "[Tabs] Unload tab from memory\nDefault: Alt+W"
+    "message": "🗂️ Unload tab from memory\nDefault: Alt+W"
   },
   "cmd_go_back_page_desc": {
-    "message": "[Navigate] Go back to previous page\nDefault: Alt+Left"
+    "message": "🧭 Go back to previous page\nDefault: Alt+Left"
   },
   "cmd_go_forward_page_desc": {
-    "message": "[Navigate] Go forward to next page\nDefault: Alt+Right"
+    "message": "🧭 Go forward to next page\nDefault: Alt+Right"
   },
   "cmd_split_active_tab_simulated_desc": {
-    "message": "[Split] Split active tab (simulated)\nDefault: Cmd+Option+Click"
+    "message": "↔️ Split active tab (simulated)\nDefault: Cmd+Option+Click"
   },
   "cmd_native_split_view_desc": {
-    "message": "[Split] Native Chrome Split View\nDefault: Cmd+Option+N"
+    "message": "↔️ Native Chrome Split View\nDefault: Cmd+Option+N"
   },
   "cmd_navigate_last_active_tab_desc": {
-    "message": "[Navigate] Navigate to last active tab\nDefault: Not set"
+    "message": "🧭 Navigate to last active tab\nDefault: Not set"
+  },
+  "cmd_select_first_tab_desc": {
+    "message": "🧭 Select first tab\nDefault: Not set"
+  },
+  "cmd_select_last_tab_desc": {
+    "message": "🧭 Select last tab\nDefault: Not set"
   },
   "cmd_toggle_pin_tab_desc": {
-    "message": "[Tabs] Pin / unpin current tab\nDefault: Cmd+Shift+P"
+    "message": "🗂️ Pin / unpin current tab\nDefault: Cmd+Shift+P"
   },
   "cmd_toggle_mute_tab_desc": {
-    "message": "[Tabs] Mute / unmute current tab\nDefault: Not set"
+    "message": "🗂️ Mute / unmute current tab\nDefault: Not set"
   },
   "cmd_search_and_jump_desc": {
-    "message": "[Navigate] Search and jump\nDefault: Cmd+Shift+A"
+    "message": "🧭 Search and jump\nDefault: Cmd+Shift+A"
   },
   "cmd_search_in_background_desc": {
-    "message": "[Navigate] Search in background\nDefault: Cmd+Shift+L"
+    "message": "🧭 Search in background\nDefault: Cmd+Shift+L"
   },
   "cmd_open_chrome_bookmarks_desc": {
-    "message": "[Chrome] Open Chrome Bookmarks (chrome://bookmarks)\nDefault: Alt+B"
+    "message": "🌐 Open Chrome Bookmarks (chrome://bookmarks)\nDefault: Alt+B"
   },
   "cmd_open_chrome_downloads_desc": {
-    "message": "[Chrome] Open Chrome Downloads (chrome://downloads)\nDefault: Not set"
+    "message": "🌐 Open Chrome Downloads (chrome://downloads)\nDefault: Not set"
   },
   "cmd_open_chrome_extensions_desc": {
-    "message": "[Chrome] Open Extensions (chrome://extensions)\nDefault: Alt+E"
+    "message": "🌐 Open Extensions (chrome://extensions)\nDefault: Alt+E"
   },
   "cmd_open_extension_shortcuts_desc": {
-    "message": "[Chrome] Open Extension Shortcuts (chrome://extensions/shortcuts)\nDefault: Not set"
+    "message": "🌐 Open Extension Shortcuts (chrome://extensions/shortcuts)\nDefault: Not set"
   },
   "cmd_open_chrome_flags_desc": {
-    "message": "[Chrome] Open Chrome Flags (chrome://flags)\nDefault: Alt+F"
+    "message": "🌐 Open Chrome Flags (chrome://flags)\nDefault: Alt+F"
   },
   "cmd_open_chrome_help_desc": {
-    "message": "[Chrome] Open Chrome Help (chrome://help)\nDefault: Not set"
+    "message": "🌐 Open Chrome Help (chrome://help)\nDefault: Not set"
   },
   "cmd_open_chrome_history_desc": {
-    "message": "[Chrome] Open Chrome History (chrome://history)\nDefault: Cmd+H"
+    "message": "🌐 Open Chrome History (chrome://history)\nDefault: Alt+H"
   },
   "cmd_open_chrome_settings_desc": {
-    "message": "[Chrome] Open Chrome Settings (chrome://settings)\nDefault: Alt+S"
+    "message": "🌐 Open Chrome Settings (chrome://settings)\nDefault: Alt+S"
   }
 }

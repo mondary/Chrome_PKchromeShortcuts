@@ -59,168 +59,178 @@ chrome.runtime.onMessage.addListener((message, sender) => {
 });
 
 chrome.commands.onCommand.addListener(async (command) => {
-  if (command === "detach-current-tab") {
+  if (command === "t13-detach-current-tab") {
     await detachCurrentTab();
     return;
   }
 
-  if (command === "split-active-tab-simulated") {
+  if (command === "s01-split-active-tab-simulated") {
     await splitActiveTabSimulated();
     return;
   }
 
-  if (command === "native-split-view") {
+  if (command === "s02-native-split-view") {
     // Chrome native Split View is handled by Chrome itself (Cmd+Option+N on Mac).
     // This command is intentionally a placeholder entry in chrome://extensions/shortcuts.
     return;
   }
 
-  if (command === "navigate-last-active-tab") {
+  if (command === "n01-navigate-last-active-tab") {
     await navigateToLastActiveTab();
     return;
   }
 
-  if (command === "toggle-pin-tab") {
+  if (command === "n01a-select-first-tab") {
+    await selectTabBoundary("first");
+    return;
+  }
+
+  if (command === "n01b-select-last-tab") {
+    await selectTabBoundary("last");
+    return;
+  }
+
+  if (command === "t08-toggle-pin-tab") {
     await togglePinActiveTab();
     return;
   }
 
-  if (command === "search-and-jump") {
+  if (command === "n07-search-and-jump") {
     await searchAndJump();
     return;
   }
 
-  if (command === "search-in-background") {
+  if (command === "n08-search-in-background") {
     await searchInBackground();
     return;
   }
 
-  if (command === "select-previous-tab") {
+  if (command === "n02-select-previous-tab") {
     await selectAdjacentTab(-1);
     return;
   }
 
-  if (command === "select-next-tab") {
+  if (command === "n03-select-next-tab") {
     await selectAdjacentTab(1);
     return;
   }
 
-  if (command === "move-current-tab-left") {
+  if (command === "t04-move-current-tab-left") {
     await moveCurrentTabBy(-1);
     return;
   }
 
-  if (command === "move-current-tab-right") {
+  if (command === "t05-move-current-tab-right") {
     await moveCurrentTabBy(1);
     return;
   }
 
-  if (command === "move-current-tab-first") {
+  if (command === "t06-move-current-tab-first") {
     await moveCurrentTabToBoundary("first");
     return;
   }
 
-  if (command === "move-current-tab-last") {
+  if (command === "t07-move-current-tab-last") {
     await moveCurrentTabToBoundary("last");
     return;
   }
 
-  if (command === "close-current-tab") {
+  if (command === "t02-close-current-tab") {
     await closeCurrentTab();
     return;
   }
 
-  if (command === "new-tab") {
+  if (command === "t01-new-tab") {
     await createNewTab();
     return;
   }
 
-  if (command === "new-window") {
+  if (command === "w01-new-window") {
     await chrome.windows.create({ focused: true });
     return;
   }
 
-  if (command === "new-incognito-window") {
+  if (command === "w02-new-incognito-window") {
     await chrome.windows.create({ focused: true, incognito: true });
     return;
   }
 
-  if (command === "duplicate-current-tab") {
+  if (command === "t03-duplicate-current-tab") {
     await duplicateCurrentTab();
     return;
   }
 
-  if (command === "reload-current-tab") {
+  if (command === "t10-reload-current-tab") {
     await reloadCurrentTab();
     return;
   }
 
-  if (command === "hard-reload-current-tab") {
+  if (command === "t11-hard-reload-current-tab") {
     await hardReloadCurrentTab();
     return;
   }
 
-  if (command === "find-in-page") {
+  if (command === "n06-find-in-page") {
     await findInCurrentPage();
     return;
   }
 
-  if (command === "unload-current-tab") {
+  if (command === "t12-unload-current-tab") {
     await unloadCurrentTab();
     return;
   }
 
-  if (command === "go-back-page") {
+  if (command === "n04-go-back-page") {
     await goBackCurrentTab();
     return;
   }
 
-  if (command === "go-forward-page") {
+  if (command === "n05-go-forward-page") {
     await goForwardCurrentTab();
     return;
   }
 
-  if (command === "toggle-mute-tab") {
+  if (command === "t09-toggle-mute-tab") {
     await toggleMuteActiveTab();
     return;
   }
 
-  if (command === "open-chrome-bookmarks") {
+  if (command === "c01-open-chrome-bookmarks") {
     await openChromeUrl("chrome://bookmarks");
     return;
   }
 
-  if (command === "open-chrome-downloads") {
+  if (command === "c02-open-chrome-downloads") {
     await openChromeUrl("chrome://downloads");
     return;
   }
 
-  if (command === "open-chrome-extensions") {
+  if (command === "c05-open-chrome-extensions") {
     await openChromeUrl("chrome://extensions");
     return;
   }
 
-  if (command === "open-extension-shortcuts") {
+  if (command === "c06-open-extension-shortcuts") {
     await openChromeUrl("chrome://extensions/shortcuts");
     return;
   }
 
-  if (command === "open-chrome-flags") {
+  if (command === "c07-open-chrome-flags") {
     await openChromeUrl("chrome://flags");
     return;
   }
 
-  if (command === "open-chrome-help") {
+  if (command === "c08-open-chrome-help") {
     await openChromeUrl("chrome://help");
     return;
   }
 
-  if (command === "open-chrome-history") {
+  if (command === "c03-open-chrome-history") {
     await openChromeUrl("chrome://history");
     return;
   }
 
-  if (command === "open-chrome-settings") {
+  if (command === "c04-open-chrome-settings") {
     await openChromeUrl("chrome://settings");
   }
 });
@@ -390,6 +400,28 @@ async function selectAdjacentTab(direction) {
     }
   } catch (error) {
     console.error("[PK Shortcuts] SELECT_ADJACENT_TAB failed:", error);
+  }
+}
+
+async function selectTabBoundary(boundary) {
+  try {
+    const activeTab = await getActiveTab();
+    if (!activeTab?.windowId) {
+      return;
+    }
+
+    const tabs = await chrome.tabs.query({ windowId: activeTab.windowId });
+    if (!tabs || tabs.length === 0) {
+      return;
+    }
+
+    const sorted = [...tabs].sort((a, b) => (a.index || 0) - (b.index || 0));
+    const targetTab = boundary === "first" ? sorted[0] : sorted[sorted.length - 1];
+    if (targetTab?.id) {
+      await chrome.tabs.update(targetTab.id, { active: true });
+    }
+  } catch (error) {
+    console.error("[PK Shortcuts] SELECT_TAB_BOUNDARY failed:", error);
   }
 }
 

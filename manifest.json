@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "__MSG_extName__",
-  "version": "0.37",
+  "version": "0.43",
   "description": "__MSG_extDescription__",
   "icons": {
     "16": "icon.png",
@@ -22,111 +22,125 @@
     "service_worker": "background.js"
   },
   "commands": {
-    "navigate-last-active-tab": {
-      "description": "__MSG_cmd_navigate_last_active_tab_desc__"
-    },
-    "select-previous-tab": {
-      "description": "__MSG_cmd_select_previous_tab_desc__"
-    },
-    "select-next-tab": {
-      "description": "__MSG_cmd_select_next_tab_desc__"
-    },
-    "go-back-page": {
-      "description": "__MSG_cmd_go_back_page_desc__"
-    },
-    "go-forward-page": {
-      "description": "__MSG_cmd_go_forward_page_desc__"
-    },
-    "find-in-page": {
-      "description": "__MSG_cmd_find_in_page_desc__"
-    },
-    "search-and-jump": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+A",
-        "mac": "Command+Shift+A"
-      },
-      "description": "__MSG_cmd_search_and_jump_desc__"
-    },
-    "search-in-background": {
-      "description": "__MSG_cmd_search_in_background_desc__"
-    },
-    "new-tab": {
+    "t01-new-tab": {
       "description": "__MSG_cmd_new_tab_desc__"
     },
-    "close-current-tab": {
+    "t02-close-current-tab": {
       "description": "__MSG_cmd_close_current_tab_desc__"
     },
-    "duplicate-current-tab": {
+    "t03-duplicate-current-tab": {
       "description": "__MSG_cmd_duplicate_current_tab_desc__"
     },
-    "move-current-tab-left": {
+    "t04-move-current-tab-left": {
       "description": "__MSG_cmd_move_current_tab_left_desc__"
     },
-    "move-current-tab-right": {
+    "t05-move-current-tab-right": {
       "description": "__MSG_cmd_move_current_tab_right_desc__"
     },
-    "move-current-tab-first": {
+    "t06-move-current-tab-first": {
       "description": "__MSG_cmd_move_current_tab_first_desc__"
     },
-    "move-current-tab-last": {
+    "t07-move-current-tab-last": {
       "description": "__MSG_cmd_move_current_tab_last_desc__"
     },
-    "toggle-pin-tab": {
+    "t08-toggle-pin-tab": {
       "description": "__MSG_cmd_toggle_pin_tab_desc__"
     },
-    "toggle-mute-tab": {
+    "t09-toggle-mute-tab": {
       "description": "__MSG_cmd_toggle_mute_tab_desc__"
     },
-    "reload-current-tab": {
+    "t10-reload-current-tab": {
       "description": "__MSG_cmd_reload_current_tab_desc__"
     },
-    "hard-reload-current-tab": {
+    "t11-hard-reload-current-tab": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+R",
+        "mac": "Command+Shift+R"
+      },
       "description": "__MSG_cmd_hard_reload_current_tab_desc__"
     },
-    "unload-current-tab": {
+    "t12-unload-current-tab": {
       "description": "__MSG_cmd_unload_current_tab_desc__"
     },
-    "detach-current-tab": {
+    "t13-detach-current-tab": {
       "suggested_key": {
         "default": "Ctrl+Shift+U",
         "mac": "Ctrl+Shift+U"
       },
       "description": "__MSG_cmd_detach_current_tab_desc__"
     },
-    "split-active-tab-simulated": {
+    "n01-navigate-last-active-tab": {
+      "description": "__MSG_cmd_navigate_last_active_tab_desc__"
+    },
+    "n01a-select-first-tab": {
+      "description": "__MSG_cmd_select_first_tab_desc__"
+    },
+    "n01b-select-last-tab": {
+      "description": "__MSG_cmd_select_last_tab_desc__"
+    },
+    "n02-select-previous-tab": {
+      "description": "__MSG_cmd_select_previous_tab_desc__"
+    },
+    "n03-select-next-tab": {
+      "description": "__MSG_cmd_select_next_tab_desc__"
+    },
+    "n04-go-back-page": {
+      "description": "__MSG_cmd_go_back_page_desc__"
+    },
+    "n05-go-forward-page": {
+      "description": "__MSG_cmd_go_forward_page_desc__"
+    },
+    "n06-find-in-page": {
+      "description": "__MSG_cmd_find_in_page_desc__"
+    },
+    "n07-search-and-jump": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+A",
+        "mac": "Command+Shift+A"
+      },
+      "description": "__MSG_cmd_search_and_jump_desc__"
+    },
+    "n08-search-in-background": {
+      "description": "__MSG_cmd_search_in_background_desc__"
+    },
+    "s01-split-active-tab-simulated": {
       "description": "__MSG_cmd_split_active_tab_simulated_desc__"
     },
-    "native-split-view": {
+    "s02-native-split-view": {
       "description": "__MSG_cmd_native_split_view_desc__"
     },
-    "new-window": {
+    "w01-new-window": {
       "description": "__MSG_cmd_new_window_desc__"
     },
-    "new-incognito-window": {
+    "w02-new-incognito-window": {
       "description": "__MSG_cmd_new_incognito_window_desc__"
     },
-    "open-chrome-bookmarks": {
+    "c01-open-chrome-bookmarks": {
       "description": "__MSG_cmd_open_chrome_bookmarks_desc__"
     },
-    "open-chrome-downloads": {
+    "c02-open-chrome-downloads": {
       "description": "__MSG_cmd_open_chrome_downloads_desc__"
     },
-    "open-chrome-history": {
-      "description": "__MSG_cmd_open_chrome_history_desc__"
+    "c03-open-chrome-history": {
+      "description": "__MSG_cmd_open_chrome_history_desc__",
+      "suggested_key": {
+        "default": "Ctrl+Shift+H",
+        "mac": "Alt+H"
+      }
     },
-    "open-chrome-settings": {
+    "c04-open-chrome-settings": {
       "description": "__MSG_cmd_open_chrome_settings_desc__"
     },
-    "open-chrome-extensions": {
+    "c05-open-chrome-extensions": {
       "description": "__MSG_cmd_open_chrome_extensions_desc__"
     },
-    "open-extension-shortcuts": {
+    "c06-open-extension-shortcuts": {
       "description": "__MSG_cmd_open_extension_shortcuts_desc__"
     },
-    "open-chrome-flags": {
+    "c07-open-chrome-flags": {
       "description": "__MSG_cmd_open_chrome_flags_desc__"
     },
-    "open-chrome-help": {
+    "c08-open-chrome-help": {
       "description": "__MSG_cmd_open_chrome_help_desc__"
     }
   },
