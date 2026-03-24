@@ -197,11 +197,6 @@ chrome.commands.onCommand.addListener(async (command) => {
     return;
   }
 
-  if (command === "n06-find-in-page") {
-    await findInCurrentPage();
-    return;
-  }
-
   if (command === "t12-unload-current-tab") {
     await unloadCurrentTab();
     return;
@@ -554,30 +549,6 @@ async function hardReloadCurrentTab() {
     await chrome.tabs.reload(activeTab.id, { bypassCache: true });
   } catch (error) {
     console.error("[PK Shortcuts] HARD_RELOAD_CURRENT_TAB failed:", error);
-  }
-}
-
-async function findInCurrentPage() {
-  try {
-    const activeTab = await getActiveTab();
-    if (!activeTab?.id || !activeTab.url || activeTab.url.startsWith("chrome://")) {
-      return;
-    }
-
-    const promptText = "Find in page:";
-    await chrome.scripting.executeScript({
-      target: { tabId: activeTab.id },
-      func: (label) => {
-        const query = window.prompt(label);
-        if (!query || typeof query !== "string") {
-          return false;
-        }
-        return window.find(query, false, false, true, false, false, false);
-      },
-      args: [promptText]
-    });
-  } catch (error) {
-    console.error("[PK Shortcuts] FIND_IN_CURRENT_PAGE failed:", error);
   }
 }
 

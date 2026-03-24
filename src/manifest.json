@@ -93,9 +93,6 @@
     "n05-go-forward-page": {
       "description": "__MSG_cmd_go_forward_page_desc__"
     },
-    "n06-find-in-page": {
-      "description": "__MSG_cmd_find_in_page_desc__"
-    },
     "n07-search-and-jump": {
       "suggested_key": {
         "default": "Ctrl+Shift+A",

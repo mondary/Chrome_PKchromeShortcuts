@@ -47,9 +47,6 @@
   "cmd_hard_reload_current_tab_desc": {
     "message": "🗂️ Recharger l'onglet (force)\nPar defaut : Cmd+Shift+R"
   },
-  "cmd_find_in_page_desc": {
-    "message": "🧭 Rechercher dans la page\nPar defaut : Cmd+F"
-  },
   "cmd_unload_current_tab_desc": {
     "message": "🗂️ Decharger l'onglet de la memoire\nPar defaut : Alt+W"
   },

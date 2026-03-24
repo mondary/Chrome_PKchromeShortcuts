@@ -33,7 +33,7 @@
 
 ## 🧾 Commandes
 - 🗂️ Onglets: new, close, duplicate, move left/right/first/last, pin, mute, reload, hard reload, unload, detach.
-- 🧭 Navigation: previous/next tab, first/last tab, last active tab, back/forward page, find, search and jump.
+- 🧭 Navigation: previous/next tab, first/last tab, last active tab, back/forward page, search and jump.
 - ↔️ Split: split simulé + entrée split view natif Chrome.
 - 🪟 Fenêtres: nouvelle fenêtre, nouvelle fenêtre privée.
 - 🌐 Chrome pages: bookmarks, downloads, history, settings, extensions, shortcuts, flags, help.

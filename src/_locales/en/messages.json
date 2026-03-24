@@ -47,9 +47,6 @@
   "cmd_hard_reload_current_tab_desc": {
     "message": "🗂️ Reload tab (hard)\nDefault: Cmd+Shift+R"
   },
-  "cmd_find_in_page_desc": {
-    "message": "🧭 Find in current page\nDefault: Cmd+F"
-  },
   "cmd_unload_current_tab_desc": {
     "message": "🗂️ Unload tab from memory\nDefault: Alt+W"
   },

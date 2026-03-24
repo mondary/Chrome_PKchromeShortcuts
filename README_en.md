@@ -33,7 +33,7 @@
 
 ## 🧾 Commands
 - 🗂️ Tabs: new, close, duplicate, move left/right/first/last, pin, mute, reload, hard reload, unload, detach.
-- 🧭 Navigation: previous/next tab, first/last tab, last active tab, back/forward page, find, search and jump.
+- 🧭 Navigation: previous/next tab, first/last tab, last active tab, back/forward page, search and jump.
 - ↔️ Split: simulated split + native Chrome split view entry.
 - 🪟 Windows: new window, new incognito window.
 - 🌐 Chrome pages: bookmarks, downloads, history, settings, extensions, shortcuts, flags, help.
