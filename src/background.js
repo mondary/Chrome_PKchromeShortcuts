@@ -86,182 +86,178 @@ chrome.runtime.onMessage.addListener((message, sender) => {
 });
 
 chrome.commands.onCommand.addListener(async (command) => {
-  if (command === "t13-detach-current-tab") {
+  if (command === "c14-detach-current-tab") {
     await detachCurrentTab();
     return;
   }
 
-  if (command === "s01-split-active-tab-simulated") {
+  if (command === "g01-split-active-tab-simulated") {
     await splitActiveTabSimulated();
     return;
   }
 
-  if (command === "s02-native-split-view") {
+  if (command === "g02-native-split-view") {
     // Chrome native Split View is handled by Chrome itself (Cmd+Option+N on Mac).
     // This command is intentionally a placeholder entry in chrome://extensions/shortcuts.
     return;
   }
 
-  if (command === "n01-navigate-last-active-tab") {
+  if (command === "d01-navigate-last-active-tab") {
     await navigateToLastActiveTab();
     return;
   }
 
-  if (command === "n01a-select-first-tab") {
+  if (command === "d02-select-first-tab") {
     await selectTabBoundary("first");
     return;
   }
 
-  if (command === "n01b-select-last-tab") {
+  if (command === "d03-select-last-tab") {
     await selectTabBoundary("last");
     return;
   }
 
-  if (command === "t08-toggle-pin-tab") {
+  if (command === "c09-toggle-pin-tab") {
     await togglePinActiveTab();
     return;
   }
 
-  if (command === "n07-search-and-jump") {
+  if (command === "d08-search-and-jump") {
     await searchAndJump();
     return;
   }
 
-  if (command === "n08-search-in-background") {
+  if (command === "d09-search-in-background") {
     await searchInBackground();
     return;
   }
 
-  if (command === "n02-select-previous-tab") {
+  if (command === "d04-select-previous-tab") {
     await selectAdjacentTab(-1);
     return;
   }
 
-  if (command === "n03-select-next-tab") {
+  if (command === "d05-select-next-tab") {
     await selectAdjacentTab(1);
     return;
   }
 
-  if (command === "t04-move-current-tab-left") {
+  if (command === "c05-move-current-tab-left") {
     await moveCurrentTabBy(-1);
     return;
   }
 
-  if (command === "t05-move-current-tab-right") {
+  if (command === "c06-move-current-tab-right") {
     await moveCurrentTabBy(1);
     return;
   }
 
-  if (command === "t06-move-current-tab-first") {
+  if (command === "c07-move-current-tab-first") {
     await moveCurrentTabToBoundary("first");
     return;
   }
 
-  if (command === "t07-move-current-tab-last") {
+  if (command === "c08-move-current-tab-last") {
     await moveCurrentTabToBoundary("last");
     return;
   }
 
-  if (command === "t02-close-current-tab") {
+  if (command === "c03-close-current-tab") {
     await closeCurrentTab();
     return;
   }
 
-  if (command === "t01-new-tab") {
+  if (command === "c01-new-tab") {
     await createNewTab();
     return;
   }
 
-  if (command === "w01-new-window") {
+  if (command === "b01-new-window") {
     await chrome.windows.create({ focused: true });
     return;
   }
 
-  if (command === "w02-new-incognito-window") {
+  if (command === "b02-new-incognito-window") {
     await chrome.windows.create({ focused: true, incognito: true });
     return;
   }
 
-  if (command === "t03-duplicate-current-tab") {
+  if (command === "c04-duplicate-current-tab") {
     await duplicateCurrentTab();
     return;
   }
 
-  if (command === "t10-reload-current-tab") {
+  if (command === "c11-reload-current-tab") {
     await reloadCurrentTab();
     return;
   }
 
-  if (command === "t11-hard-reload-current-tab") {
+  if (command === "c12-hard-reload-current-tab") {
     await hardReloadCurrentTab();
     return;
   }
 
-  if (command === "t12-unload-current-tab") {
+  if (command === "c13-unload-current-tab") {
     await unloadCurrentTab();
     return;
   }
 
-  if (command === "n04-go-back-page") {
+  if (command === "d06-go-back-page") {
     await goBackCurrentTab();
     return;
   }
 
-  if (command === "n05-go-forward-page") {
+  if (command === "d07-go-forward-page") {
     await goForwardCurrentTab();
     return;
   }
 
-  if (command === "t09-toggle-mute-tab") {
+  if (command === "c10-toggle-mute-tab") {
     await toggleMuteActiveTab();
     return;
   }
 
-  if (command === "c01-open-chrome-bookmarks") {
+  if (command === "a01-open-chrome-bookmarks") {
     await openChromeUrl("chrome://bookmarks");
     return;
   }
 
-  if (command === "c02-open-chrome-downloads") {
+  if (command === "a02-open-chrome-downloads") {
     await openChromeUrl("chrome://downloads");
     return;
   }
 
-  if (command === "c05-open-chrome-extensions") {
+  if (command === "a05-open-chrome-extensions") {
     await openChromeUrl("chrome://extensions");
     return;
   }
 
-  if (command === "c06-open-extension-shortcuts") {
+  if (command === "a06-open-extension-shortcuts") {
     await openChromeUrl("chrome://extensions/shortcuts");
     return;
   }
 
-  if (command === "c07-open-chrome-flags") {
+  if (command === "a07-open-chrome-flags") {
     await openChromeUrl("chrome://flags");
     return;
   }
 
-  if (command === "c08-open-chrome-help") {
+  if (command === "a08-open-chrome-help") {
     await openChromeUrl("chrome://help");
     return;
   }
 
-  if (command === "c03-open-chrome-history") {
+  if (command === "a03-open-chrome-history") {
     await openChromeUrl("chrome://history");
     return;
   }
 
-  if (command === "c04-open-chrome-settings") {
+  if (command === "a04-open-chrome-settings") {
     await openChromeUrl("chrome://settings");
     return;
   }
 
-  if (command.startsWith("m")) {
-    // Memo-only commands are listed in chrome://extensions/shortcuts for reference.
-    // They intentionally do not override native Chrome behavior here.
-    return;
-  }
+  // Unmatched commands are native-Chrome reference entries listed for memory only.
 });
 
 async function openLinkInSplitWindow(url, sourceWindowId) {

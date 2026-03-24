@@ -52,6 +52,20 @@
 4. Select `.../Chrome_PKchromeShortcuts/src`
 
 ## 🧾 Changelog
+- `1.18`: clarified the Cmd+E label to indicate the find bar must already be open.
+- `1.17`: clarified the Cmd+G / Cmd+Shift+G labels for find-in-page navigation.
+- `1.16`: made suggestions more visually obvious with a dedicated emoji.
+- `1.15`: updated the "Search and jump" label to show `Chrome: Cmd+Shift+A`.
+- `1.14`: corrected labels to separate real Chrome shortcuts from personal suggestions.
+- `1.13`: flattened labels to a single-line " · Chrome: ..." format without any "Extension" wording.
+- `1.12`: normalized the "Chrome ·" separator across FR and EN labels.
+- `1.10`: renamed command IDs to enforce a logical category order in Chrome.
+- `1.9`: moved reopen-tab command next to the other tab actions.
+- `1.8`: adjusted command ordering to better group developer tools.
+- `1.7`: reordered commands by category in the Chrome shortcuts list.
+- `1.6`: removed "Extension: Not set" lines from shortcut labels.
+- `1.5`: added shortcut entry count to the extension title.
+- `1.4`: normalized shortcut labels, removed one bookmarks duplicate, adjusted shortcut suggestions.
 - `1.3`: structure cleanup, removed fake "find in page", added native Chrome commands as shortcut reminders.
 - `1.1`: fixed badge API compatibility (`action/browserAction` fallback).
 - `1.0`: added tab count badge on extension icon.

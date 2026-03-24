@@ -52,6 +52,21 @@
 4. Sélectionne `.../Chrome_PKchromeShortcuts/src`
 
 ## 🧾 Changelog
+- `1.18`: clarification du libelle Cmd+E pour indiquer que la barre de recherche doit etre ouverte.
+- `1.17`: clarification des libelles Cmd+G / Cmd+Shift+G pour la recherche dans la page.
+- `1.16`: mise en avant visuelle des suggestions avec un emoji dedie.
+- `1.15`: ajustement du libelle "Rechercher et aller" pour afficher `Chrome: Cmd+Shift+A`.
+- `1.14`: correction des libelles pour separer les vrais raccourcis Chrome des suggestions perso.
+- `1.13`: libelles remis sur une seule ligne au format " · Chrome: ..." sans mention "Extension".
+- `1.12`: harmonisation du separateur "Chrome ·" dans les libelles FR et EN.
+- `1.11`: remplacement du format "Chrome :" par "Chrome ·" dans les libelles.
+- `1.10`: renommage des identifiants de commandes pour imposer un tri logique par categorie dans Chrome.
+- `1.9`: repositionnement de la commande de reouverture d'onglet avec les autres actions d'onglet.
+- `1.8`: ajustement de l'ordre des commandes pour mieux regrouper les outils developpeur.
+- `1.7`: reorganisation des commandes par typologie dans la liste des raccourcis Chrome.
+- `1.6`: suppression des lignes "Extension : Non defini" dans les libelles de raccourcis.
+- `1.5`: ajout du nombre d'entrees de raccourcis dans le titre de l'extension.
+- `1.4`: harmonisation des libelles de raccourcis, suppression d'un doublon bookmarks, ajustement des suggestions de raccourcis.
 - `1.3`: nettoyage structure, suppression du faux "find in page", ajout des commandes Chrome natives comme pense-bete dans les raccourcis.
 - `1.1`: correction compatibilité badge (fallback `action/browserAction`).
 - `1.0`: ajout du badge compteur d’onglets sur l’icône extension.
