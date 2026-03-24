@@ -56,6 +56,7 @@
 4. Select `.../Chrome_PKchromeShortcuts/src`
 
 ## 🧾 Changelog
+- `1.21`: added a large icon.png background accent and language flags to the privacy page.
 - `1.20`: redesigned the HTML privacy page with a cleaner layout, bilingual FR/EN content, and icon2 branding.
 - `1.19`: added a proper privacy policy to the repo for Chrome Web Store publication.
 - `1.18`: clarified the Cmd+E label to indicate the find bar must already be open.

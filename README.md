@@ -56,6 +56,7 @@
 4. Sélectionne `.../Chrome_PKchromeShortcuts/src`
 
 ## 🧾 Changelog
+- `1.21`: ajout d'un fond visuel avec icon.png et drapeaux de langue sur la page de confidentialite.
 - `1.20`: refonte de la page HTML de confidentialite avec design plus propre, bilingue FR/EN, et icon2.
 - `1.19`: ajout d'une vraie politique de confidentialite dans le repo pour la publication Chrome Web Store.
 - `1.18`: clarification du libelle Cmd+E pour indiquer que la barre de recherche doit etre ouverte.
