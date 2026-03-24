@@ -254,6 +254,13 @@ chrome.commands.onCommand.addListener(async (command) => {
 
   if (command === "c04-open-chrome-settings") {
     await openChromeUrl("chrome://settings");
+    return;
+  }
+
+  if (command.startsWith("m")) {
+    // Memo-only commands are listed in chrome://extensions/shortcuts for reference.
+    // They intentionally do not override native Chrome behavior here.
+    return;
   }
 });
 

@@ -52,6 +52,7 @@
 4. Sélectionne `.../Chrome_PKchromeShortcuts/src`
 
 ## 🧾 Changelog
+- `1.3`: nettoyage structure, suppression du faux "find in page", ajout des commandes Chrome natives comme pense-bete dans les raccourcis.
 - `1.1`: correction compatibilité badge (fallback `action/browserAction`).
 - `1.0`: ajout du badge compteur d’onglets sur l’icône extension.
 - `0.45`: structure projet en `src/` (chargeable) + `extension/` (artefacts release), scripts release/publish ajustés.

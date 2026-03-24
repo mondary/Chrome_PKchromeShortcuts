@@ -6,105 +6,204 @@
     "message": "Raccourcis Chrome : split simule et utilitaires d'onglets."
   },
   "cmd_detach_current_tab_desc": {
-    "message": "🗂️ Detacher l'onglet actif\nPar defaut : Cmd+Shift+U"
+    "message": "🗂️ Detacher l'onglet actif\nExtension : Cmd+Shift+U"
   },
   "cmd_select_previous_tab_desc": {
-    "message": "🧭 Selectionner l'onglet precedent\nPar defaut : Cmd+Option+Left"
+    "message": "🧭 Selectionner l'onglet precedent\nChrome : Cmd+Option+Left"
   },
   "cmd_select_next_tab_desc": {
-    "message": "🧭 Selectionner l'onglet suivant\nPar defaut : Cmd+Option+Right"
+    "message": "🧭 Selectionner l'onglet suivant\nChrome : Cmd+Option+Right"
   },
   "cmd_move_current_tab_left_desc": {
-    "message": "🗂️ Deplacer l'onglet actif a gauche\nPar defaut : Cmd+Left"
+    "message": "🗂️ Deplacer l'onglet actif a gauche\nChrome : Ctrl+Shift+PgUp\nSuggestion extension : Cmd+Left"
   },
   "cmd_move_current_tab_right_desc": {
-    "message": "🗂️ Deplacer l'onglet actif a droite\nPar defaut : Cmd+Right"
+    "message": "🗂️ Deplacer l'onglet actif a droite\nChrome : Ctrl+Shift+PgDn\nSuggestion extension : Cmd+Right"
   },
   "cmd_move_current_tab_first_desc": {
-    "message": "🗂️ Deplacer l'onglet actif en premier\nPar defaut : Non defini"
+    "message": "🗂️ Deplacer l'onglet actif en premier\nExtension : Non defini"
   },
   "cmd_move_current_tab_last_desc": {
-    "message": "🗂️ Deplacer l'onglet actif en dernier\nPar defaut : Non defini"
+    "message": "🗂️ Deplacer l'onglet actif en dernier\nExtension : Non defini"
   },
   "cmd_close_current_tab_desc": {
-    "message": "🗂️ Fermer l'onglet actif\nPar defaut : Cmd+W"
+    "message": "🗂️ Fermer l'onglet actif\nChrome : Cmd+W"
   },
   "cmd_new_tab_desc": {
-    "message": "🗂️ Nouvel onglet\nPar defaut : Cmd+T"
+    "message": "🗂️ Nouvel onglet\nChrome : Cmd+T"
   },
   "cmd_new_window_desc": {
-    "message": "🪟 Nouvelle fenetre\nPar defaut : Cmd+N"
+    "message": "🪟 Nouvelle fenetre\nChrome : Cmd+N"
   },
   "cmd_new_incognito_window_desc": {
-    "message": "🪟 Nouvelle fenetre de navigation privee\nPar defaut : Cmd+Shift+N"
+    "message": "🪟 Nouvelle fenetre de navigation privee\nChrome : Cmd+Shift+N"
   },
   "cmd_duplicate_current_tab_desc": {
-    "message": "🗂️ Dupliquer l'onglet actif\nPar defaut : Cmd+D"
+    "message": "🗂️ Dupliquer l'onglet actif\nChrome : Cmd+D"
   },
   "cmd_reload_current_tab_desc": {
-    "message": "🗂️ Recharger l'onglet\nPar defaut : Cmd+R"
+    "message": "🗂️ Recharger l'onglet\nChrome : Cmd+R"
   },
   "cmd_hard_reload_current_tab_desc": {
-    "message": "🗂️ Recharger l'onglet (force)\nPar defaut : Cmd+Shift+R"
+    "message": "🗂️ Recharger l'onglet (force)\nChrome : Cmd+Shift+R"
   },
   "cmd_unload_current_tab_desc": {
-    "message": "🗂️ Decharger l'onglet de la memoire\nPar defaut : Alt+W"
+    "message": "🗂️ Decharger l'onglet de la memoire\nExtension : Non defini"
   },
   "cmd_go_back_page_desc": {
-    "message": "🧭 Revenir a la page precedente\nPar defaut : Alt+Left"
+    "message": "🧭 Revenir a la page precedente\nExtension : Alt+Left"
   },
   "cmd_go_forward_page_desc": {
-    "message": "🧭 Aller a la page suivante\nPar defaut : Alt+Right"
+    "message": "🧭 Aller a la page suivante\nExtension : Alt+Right"
   },
   "cmd_split_active_tab_simulated_desc": {
-    "message": "↔️ Split de l'onglet actif (simule)\nPar defaut : Cmd+Option+Click"
+    "message": "↔️ Split de l'onglet actif (simule)\nExtension : Cmd+Option+Click"
   },
   "cmd_native_split_view_desc": {
-    "message": "↔️ Split View natif Chrome\nPar defaut : Cmd+Option+N"
+    "message": "↔️ Split View natif Chrome\nChrome : Cmd+Option+N"
   },
   "cmd_navigate_last_active_tab_desc": {
-    "message": "🧭 Aller au dernier onglet actif\nPar defaut : Non defini"
+    "message": "🧭 Aller au dernier onglet actif\nExtension : Non defini"
   },
   "cmd_select_first_tab_desc": {
-    "message": "🧭 Aller au premier onglet\nPar defaut : Non defini"
+    "message": "🧭 Aller au premier onglet\nExtension : Non defini"
   },
   "cmd_select_last_tab_desc": {
-    "message": "🧭 Aller au dernier onglet\nPar defaut : Non defini"
+    "message": "🧭 Aller au dernier onglet\nExtension : Non defini"
   },
   "cmd_toggle_pin_tab_desc": {
-    "message": "🗂️ Epingler / desepingler l'onglet actif\nPar defaut : Cmd+Shift+P"
+    "message": "🗂️ Epingler / desepingler l'onglet actif\nExtension : Non defini"
   },
   "cmd_toggle_mute_tab_desc": {
-    "message": "🗂️ Couper / activer le son de l'onglet actif\nPar defaut : Non defini"
+    "message": "🗂️ Couper / activer le son de l'onglet actif\nExtension : Non defini"
   },
   "cmd_search_and_jump_desc": {
-    "message": "🧭 Rechercher et aller\nPar defaut : Cmd+Shift+A"
+    "message": "🧭 Rechercher et aller\nExtension : Cmd+Shift+A"
   },
   "cmd_search_in_background_desc": {
-    "message": "🧭 Rechercher en arriere-plan\nPar defaut : Cmd+Shift+L"
+    "message": "🧭 Rechercher en arriere-plan\nExtension : Non defini"
   },
   "cmd_open_chrome_bookmarks_desc": {
-    "message": "🌐 Ouvrir les favoris Chrome (chrome://bookmarks)\nPar defaut : Alt+B"
+    "message": "🌐 Ouvrir les favoris Chrome (chrome://bookmarks)\nChrome : Cmd+Option+B"
   },
   "cmd_open_chrome_downloads_desc": {
-    "message": "🌐 Ouvrir les telechargements Chrome (chrome://downloads)\nPar defaut : Non defini"
+    "message": "🌐 Ouvrir les telechargements Chrome (chrome://downloads)\nChrome : Cmd+Shift+J"
   },
   "cmd_open_chrome_extensions_desc": {
-    "message": "🌐 Ouvrir les extensions (chrome://extensions)\nPar defaut : Alt+E"
+    "message": "🌐 Ouvrir les extensions (chrome://extensions)\nExtension : Non defini"
   },
   "cmd_open_extension_shortcuts_desc": {
-    "message": "🌐 Ouvrir les raccourcis des extensions (chrome://extensions/shortcuts)\nPar defaut : Non defini"
+    "message": "🌐 Ouvrir les raccourcis des extensions (chrome://extensions/shortcuts)\nExtension : Non defini"
   },
   "cmd_open_chrome_flags_desc": {
-    "message": "🌐 Ouvrir les flags Chrome (chrome://flags)\nPar defaut : Alt+F"
+    "message": "🌐 Ouvrir les flags Chrome (chrome://flags)\nExtension : Non defini"
   },
   "cmd_open_chrome_help_desc": {
-    "message": "🌐 Ouvrir l'aide Chrome (chrome://help)\nPar defaut : Non defini"
+    "message": "🌐 Ouvrir l'aide Chrome (chrome://help)\nExtension : Non defini"
   },
   "cmd_open_chrome_history_desc": {
-    "message": "🌐 Ouvrir l'historique Chrome (chrome://history)\nPar defaut : Alt+H"
+    "message": "🌐 Ouvrir l'historique Chrome (chrome://history)\nChrome : Cmd+Y"
   },
   "cmd_open_chrome_settings_desc": {
-    "message": "🌐 Ouvrir les parametres Chrome (chrome://settings)\nPar defaut : Alt+S"
+    "message": "🌐 Ouvrir les parametres Chrome (chrome://settings)\nChrome : Cmd+,"
+  },
+  "cmd_memo_reopen_closed_tab_desc": {
+    "message": "🗂️ Rouvrir l'onglet ferme\nChrome : Cmd+Shift+T"
+  },
+  "cmd_memo_jump_to_specific_tab_desc": {
+    "message": "🧭 Aller a un onglet precis\nChrome : Cmd+1 a Cmd+8, Cmd+9"
+  },
+  "cmd_memo_close_current_window_desc": {
+    "message": "🪟 Fermer la fenetre courante\nChrome : Cmd+Shift+W"
+  },
+  "cmd_memo_minimize_window_desc": {
+    "message": "🪟 Minimiser la fenetre\nChrome : Cmd+M"
+  },
+  "cmd_memo_hide_chrome_desc": {
+    "message": "🪟 Masquer Chrome\nChrome : Cmd+H"
+  },
+  "cmd_memo_quit_chrome_desc": {
+    "message": "🪟 Quitter Chrome\nChrome : Cmd+Q"
+  },
+  "cmd_memo_toggle_bookmarks_bar_desc": {
+    "message": "🌐 Afficher/masquer la barre de favoris\nChrome : Cmd+Shift+B"
+  },
+  "cmd_memo_open_bookmark_manager_desc": {
+    "message": "🌐 Ouvrir le gestionnaire de favoris\nChrome : Cmd+Option+B"
+  },
+  "cmd_memo_open_find_bar_desc": {
+    "message": "🧭 Ouvrir la barre de recherche dans la page\nChrome : Cmd+F"
+  },
+  "cmd_memo_find_next_match_desc": {
+    "message": "🧭 Resultat suivant dans la recherche\nChrome : Cmd+G"
+  },
+  "cmd_memo_find_previous_match_desc": {
+    "message": "🧭 Resultat precedent dans la recherche\nChrome : Cmd+Shift+G"
+  },
+  "cmd_memo_search_selected_text_desc": {
+    "message": "🧭 Rechercher le texte selectionne\nChrome : Cmd+E"
+  },
+  "cmd_memo_open_devtools_desc": {
+    "message": "🛠️ Ouvrir les DevTools\nChrome : Cmd+Option+I"
+  },
+  "cmd_memo_open_delete_browsing_data_desc": {
+    "message": "🌐 Ouvrir supprimer les donnees de navigation\nChrome : Cmd+Shift+Delete"
+  },
+  "cmd_memo_focus_main_menu_desc": {
+    "message": "🌐 Aller a la barre de menu principale\nChrome : Control+F2"
+  },
+  "cmd_memo_cycle_focus_toolbars_desc": {
+    "message": "🌐 Cycle focus dialogues/barres d'outils\nChrome : Cmd+Option+Up ou Down"
+  },
+  "cmd_memo_open_feedback_form_desc": {
+    "message": "🌐 Ouvrir le formulaire de feedback\nChrome : Cmd+Option+Shift+I"
+  },
+  "cmd_memo_toggle_caret_browsing_desc": {
+    "message": "🌐 Activer la navigation au curseur\nChrome : F7"
+  },
+  "cmd_memo_focus_inactive_dialogs_desc": {
+    "message": "🌐 Focus sur dialogues inactifs\nChrome : Cmd+Option+Shift+A"
+  },
+  "cmd_memo_focus_address_bar_desc": {
+    "message": "🌐 Focus barre d'adresse\nChrome : Cmd+L"
+  },
+  "cmd_memo_print_page_desc": {
+    "message": "📄 Imprimer la page\nChrome : Cmd+P"
+  },
+  "cmd_memo_save_page_desc": {
+    "message": "📄 Enregistrer la page\nChrome : Cmd+S"
+  },
+  "cmd_memo_page_setup_desc": {
+    "message": "📄 Mise en page\nChrome : Cmd+Option+P"
+  },
+  "cmd_memo_open_file_desc": {
+    "message": "📄 Ouvrir un fichier dans Chrome\nChrome : Cmd+O"
+  },
+  "cmd_memo_view_source_desc": {
+    "message": "📄 Afficher le code source\nChrome : Cmd+Option+U"
+  },
+  "cmd_memo_open_js_console_desc": {
+    "message": "🛠️ Ouvrir la console JavaScript\nChrome : Cmd+Option+J"
+  },
+  "cmd_memo_save_bookmark_desc": {
+    "message": "🌐 Enregistrer la page en favori\nChrome : Cmd+D"
+  },
+  "cmd_memo_save_all_tabs_as_bookmarks_desc": {
+    "message": "🌐 Enregistrer tous les onglets en favoris\nChrome : Cmd+Shift+D"
+  },
+  "cmd_memo_zoom_in_desc": {
+    "message": "📄 Zoom avant\nChrome : Cmd++"
+  },
+  "cmd_memo_zoom_out_desc": {
+    "message": "📄 Zoom arriere\nChrome : Cmd+-"
+  },
+  "cmd_memo_zoom_reset_desc": {
+    "message": "📄 Zoom par defaut\nChrome : Cmd+0"
+  },
+  "cmd_memo_search_web_desc": {
+    "message": "🌐 Recherche web\nChrome : Cmd+Option+F"
+  },
+  "cmd_memo_open_home_page_desc": {
+    "message": "🌐 Ouvrir la page d'accueil\nChrome : Cmd+Shift+H"
   }
 }

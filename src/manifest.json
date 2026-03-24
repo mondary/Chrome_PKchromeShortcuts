@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "__MSG_extName__",
-  "version": "1.2",
+  "version": "1.3",
   "description": "__MSG_extDescription__",
   "icons": {
     "16": "icon.png",
@@ -35,9 +35,17 @@
       "description": "__MSG_cmd_duplicate_current_tab_desc__"
     },
     "t04-move-current-tab-left": {
+      "suggested_key": {
+        "default": "Ctrl+Left",
+        "mac": "Command+Left"
+      },
       "description": "__MSG_cmd_move_current_tab_left_desc__"
     },
     "t05-move-current-tab-right": {
+      "suggested_key": {
+        "default": "Ctrl+Right",
+        "mac": "Command+Right"
+      },
       "description": "__MSG_cmd_move_current_tab_right_desc__"
     },
     "t06-move-current-tab-first": {
@@ -56,10 +64,6 @@
       "description": "__MSG_cmd_reload_current_tab_desc__"
     },
     "t11-hard-reload-current-tab": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+R",
-        "mac": "Command+Shift+R"
-      },
       "description": "__MSG_cmd_hard_reload_current_tab_desc__"
     },
     "t12-unload-current-tab": {
@@ -94,10 +98,6 @@
       "description": "__MSG_cmd_go_forward_page_desc__"
     },
     "n07-search-and-jump": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+A",
-        "mac": "Command+Shift+A"
-      },
       "description": "__MSG_cmd_search_and_jump_desc__"
     },
     "n08-search-in-background": {
@@ -122,11 +122,7 @@
       "description": "__MSG_cmd_open_chrome_downloads_desc__"
     },
     "c03-open-chrome-history": {
-      "description": "__MSG_cmd_open_chrome_history_desc__",
-      "suggested_key": {
-        "default": "Ctrl+Shift+H",
-        "mac": "Alt+H"
-      }
+      "description": "__MSG_cmd_open_chrome_history_desc__"
     },
     "c04-open-chrome-settings": {
       "description": "__MSG_cmd_open_chrome_settings_desc__"
@@ -142,6 +138,105 @@
     },
     "c08-open-chrome-help": {
       "description": "__MSG_cmd_open_chrome_help_desc__"
+    },
+    "m01-reopen-closed-tab": {
+      "description": "__MSG_cmd_memo_reopen_closed_tab_desc__"
+    },
+    "m02-jump-to-specific-tab": {
+      "description": "__MSG_cmd_memo_jump_to_specific_tab_desc__"
+    },
+    "m03-close-current-window": {
+      "description": "__MSG_cmd_memo_close_current_window_desc__"
+    },
+    "m04-minimize-window": {
+      "description": "__MSG_cmd_memo_minimize_window_desc__"
+    },
+    "m05-hide-chrome": {
+      "description": "__MSG_cmd_memo_hide_chrome_desc__"
+    },
+    "m06-quit-chrome": {
+      "description": "__MSG_cmd_memo_quit_chrome_desc__"
+    },
+    "m07-toggle-bookmarks-bar": {
+      "description": "__MSG_cmd_memo_toggle_bookmarks_bar_desc__"
+    },
+    "m08-open-bookmark-manager": {
+      "description": "__MSG_cmd_memo_open_bookmark_manager_desc__"
+    },
+    "m09-open-find-bar": {
+      "description": "__MSG_cmd_memo_open_find_bar_desc__"
+    },
+    "m10-find-next-match": {
+      "description": "__MSG_cmd_memo_find_next_match_desc__"
+    },
+    "m11-find-previous-match": {
+      "description": "__MSG_cmd_memo_find_previous_match_desc__"
+    },
+    "m12-search-selected-text": {
+      "description": "__MSG_cmd_memo_search_selected_text_desc__"
+    },
+    "m13-open-devtools": {
+      "description": "__MSG_cmd_memo_open_devtools_desc__"
+    },
+    "m14-open-delete-browsing-data": {
+      "description": "__MSG_cmd_memo_open_delete_browsing_data_desc__"
+    },
+    "m15-focus-main-menu": {
+      "description": "__MSG_cmd_memo_focus_main_menu_desc__"
+    },
+    "m16-cycle-focus-toolbars": {
+      "description": "__MSG_cmd_memo_cycle_focus_toolbars_desc__"
+    },
+    "m17-open-feedback-form": {
+      "description": "__MSG_cmd_memo_open_feedback_form_desc__"
+    },
+    "m18-toggle-caret-browsing": {
+      "description": "__MSG_cmd_memo_toggle_caret_browsing_desc__"
+    },
+    "m19-focus-inactive-dialogs": {
+      "description": "__MSG_cmd_memo_focus_inactive_dialogs_desc__"
+    },
+    "m20-focus-address-bar": {
+      "description": "__MSG_cmd_memo_focus_address_bar_desc__"
+    },
+    "m21-print-page": {
+      "description": "__MSG_cmd_memo_print_page_desc__"
+    },
+    "m22-save-page": {
+      "description": "__MSG_cmd_memo_save_page_desc__"
+    },
+    "m23-page-setup": {
+      "description": "__MSG_cmd_memo_page_setup_desc__"
+    },
+    "m24-open-file": {
+      "description": "__MSG_cmd_memo_open_file_desc__"
+    },
+    "m25-view-source": {
+      "description": "__MSG_cmd_memo_view_source_desc__"
+    },
+    "m26-open-js-console": {
+      "description": "__MSG_cmd_memo_open_js_console_desc__"
+    },
+    "m27-save-bookmark": {
+      "description": "__MSG_cmd_memo_save_bookmark_desc__"
+    },
+    "m28-save-all-tabs-as-bookmarks": {
+      "description": "__MSG_cmd_memo_save_all_tabs_as_bookmarks_desc__"
+    },
+    "m29-zoom-in": {
+      "description": "__MSG_cmd_memo_zoom_in_desc__"
+    },
+    "m30-zoom-out": {
+      "description": "__MSG_cmd_memo_zoom_out_desc__"
+    },
+    "m31-zoom-reset": {
+      "description": "__MSG_cmd_memo_zoom_reset_desc__"
+    },
+    "m32-search-web": {
+      "description": "__MSG_cmd_memo_search_web_desc__"
+    },
+    "m33-open-home-page": {
+      "description": "__MSG_cmd_memo_open_home_page_desc__"
     }
   },
   "content_scripts": [

@@ -52,6 +52,7 @@
 4. Select `.../Chrome_PKchromeShortcuts/src`
 
 ## 🧾 Changelog
+- `1.3`: structure cleanup, removed fake "find in page", added native Chrome commands as shortcut reminders.
 - `1.1`: fixed badge API compatibility (`action/browserAction` fallback).
 - `1.0`: added tab count badge on extension icon.
 - `0.45`: project structure finalized as `src/` (loadable) + `extension/` (release artifacts), release/publish scripts updated.
