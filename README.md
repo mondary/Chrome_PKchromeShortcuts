@@ -56,6 +56,7 @@
 4. Sélectionne `.../Chrome_PKchromeShortcuts/src`
 
 ## 🧾 Changelog
+- `1.20`: refonte de la page HTML de confidentialite avec design plus propre, bilingue FR/EN, et icon2.
 - `1.19`: ajout d'une vraie politique de confidentialite dans le repo pour la publication Chrome Web Store.
 - `1.18`: clarification du libelle Cmd+E pour indiquer que la barre de recherche doit etre ouverte.
 - `1.17`: clarification des libelles Cmd+G / Cmd+Shift+G pour la recherche dans la page.

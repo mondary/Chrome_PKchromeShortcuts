@@ -7,94 +7,312 @@
     <style>
       :root {
         color-scheme: light;
-        --bg: #f7f7f4;
-        --fg: #131313;
-        --muted: #5b5b57;
-        --card: #ffffff;
-        --line: #d9d8d2;
+        --bg: #f3f1ea;
+        --bg-accent: #e4ddd0;
+        --card: rgba(255, 255, 255, 0.82);
+        --line: rgba(44, 39, 32, 0.12);
+        --text: #171512;
+        --muted: #5f5a52;
+        --accent: #9c4d2c;
+        --accent-soft: rgba(156, 77, 44, 0.12);
+        --shadow: 0 24px 60px rgba(34, 28, 22, 0.12);
       }
+
       * {
         box-sizing: border-box;
       }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        background: var(--bg);
-        color: var(--fg);
-        line-height: 1.6;
+        font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+        color: var(--text);
+        line-height: 1.65;
+        background:
+          radial-gradient(circle at top left, rgba(156, 77, 44, 0.14), transparent 28%),
+          radial-gradient(circle at top right, rgba(28, 66, 92, 0.1), transparent 22%),
+          linear-gradient(180deg, var(--bg) 0%, #f7f5ef 100%);
       }
-      main {
-        max-width: 760px;
+
+      .shell {
+        max-width: 1080px;
         margin: 0 auto;
-        padding: 48px 20px 80px;
+        padding: 32px 20px 72px;
       }
-      article {
+
+      .hero {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 24px;
+        align-items: center;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(250, 246, 240, 0.78));
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        padding: 28px;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(8px);
+      }
+
+      .hero img {
+        width: 100%;
+        max-width: 120px;
+        display: block;
+        border-radius: 24px;
+        box-shadow: 0 14px 34px rgba(31, 25, 19, 0.18);
+      }
+
+      .eyebrow {
+        margin: 0 0 8px;
+        color: var(--accent);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 3.4rem);
+        line-height: 1.05;
+      }
+
+      .hero p {
+        margin: 12px 0 0;
+        color: var(--muted);
+        max-width: 60ch;
+      }
+
+      .meta {
+        margin-top: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--text);
+        font-size: 0.92rem;
+      }
+
+      .lang-nav {
+        margin: 20px 0 0;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .lang-nav a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .grid {
+        margin-top: 28px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+      }
+
+      .card {
         background: var(--card);
         border: 1px solid var(--line);
-        border-radius: 16px;
-        padding: 32px;
+        border-radius: 24px;
+        padding: 28px;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(8px);
       }
-      h1, h2 {
+
+      .section-label {
+        margin: 0 0 12px;
+        color: var(--accent);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        margin: 0 0 18px;
+        font-size: 1.7rem;
+        line-height: 1.15;
+      }
+
+      h3 {
+        margin: 22px 0 10px;
+        font-size: 1.05rem;
         line-height: 1.2;
       }
-      h1 {
-        margin-top: 0;
-        font-size: 2rem;
+
+      p {
+        margin: 0 0 14px;
       }
-      h2 {
-        margin-top: 2rem;
-        font-size: 1.1rem;
+
+      ul {
+        margin: 0 0 14px 20px;
+        padding: 0;
       }
-      p, li {
-        color: var(--fg);
+
+      li + li {
+        margin-top: 6px;
       }
-      .muted {
+
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        background: rgba(20, 18, 15, 0.06);
+        padding: 0.08rem 0.32rem;
+        border-radius: 6px;
+      }
+
+      .footer {
+        margin-top: 20px;
+        text-align: center;
         color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      @media (max-width: 860px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .shell {
+          padding: 18px 14px 48px;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          text-align: center;
+          justify-items: center;
+        }
+
+        .meta,
+        .lang-nav {
+          justify-content: center;
+        }
+
+        .card {
+          padding: 22px 18px;
+        }
       }
     </style>
   </head>
   <body>
-    <main>
-      <article>
-        <h1>PK Chrome Shortcuts Privacy Policy</h1>
-        <p class="muted">Last updated: 2026-03-24</p>
+    <main class="shell">
+      <section class="hero">
+        <img src="icon2.png" alt="PK Chrome Shortcuts icon">
+        <div>
+          <p class="eyebrow">Privacy Policy</p>
+          <h1>PK Chrome Shortcuts</h1>
+          <p>Privacy policy for the Chrome extension. English and French versions are available below on the same page.</p>
+          <div class="meta">
+            <span class="pill">Last updated: 2026-03-24</span>
+            <span class="pill">Chrome Extension</span>
+            <span class="pill">No analytics</span>
+          </div>
+          <nav class="lang-nav" aria-label="Language sections">
+            <a href="#en">English</a>
+            <a href="#fr">Francais</a>
+          </nav>
+        </div>
+      </section>
 
-        <p>PK Chrome Shortcuts is a Chrome extension that provides keyboard shortcuts and tab/window utilities inside Google Chrome.</p>
+      <section class="grid">
+        <article class="card" id="en" lang="en">
+          <p class="section-label">English</p>
+          <h2>Privacy Policy</h2>
 
-        <h2>Data collection</h2>
-        <p>PK Chrome Shortcuts does not collect, store, sell, or share personal data with the developer or third parties.</p>
-        <p>The extension does not use analytics, advertising trackers, remote logging, or external databases.</p>
+          <p>PK Chrome Shortcuts is a Chrome extension that provides keyboard shortcuts and tab/window utilities inside Google Chrome.</p>
 
-        <h2>How the extension works</h2>
-        <p>The extension uses Chrome extension APIs locally on your device to:</p>
-        <ul>
-          <li>manage tabs and windows</li>
-          <li>open Chrome internal pages such as bookmarks, history, downloads, settings, and shortcuts</li>
-          <li>react to keyboard shortcuts and optional click gestures</li>
-          <li>display a badge with the current number of open tabs</li>
-        </ul>
+          <h3>Data collection</h3>
+          <p>PK Chrome Shortcuts does not collect, store, sell, or share personal data with the developer or third parties.</p>
+          <p>The extension does not use analytics, advertising trackers, remote logging, or external databases.</p>
 
-        <h2>Website data and page access</h2>
-        <p>The extension is allowed to run on webpages because it provides shortcut and navigation features that depend on the current tab and user interaction on links.</p>
-        <p>Page access is used locally on your device only. The extension does not transmit webpage contents, browsing history, form inputs, or personal information to any external server.</p>
+          <h3>How the extension works</h3>
+          <p>The extension uses Chrome extension APIs locally on your device to:</p>
+          <ul>
+            <li>manage tabs and windows</li>
+            <li>open Chrome internal pages such as bookmarks, history, downloads, settings, and shortcuts</li>
+            <li>react to keyboard shortcuts and optional click gestures</li>
+            <li>display a badge with the current number of open tabs</li>
+          </ul>
 
-        <h2>Permissions</h2>
-        <p>The extension uses the following Chrome permissions:</p>
-        <ul>
-          <li><code>tabs</code></li>
-          <li><code>windows</code></li>
-          <li><code>activeTab</code></li>
-          <li><code>scripting</code></li>
-          <li>host access on pages needed for the extension features</li>
-        </ul>
-        <p>These permissions are used only to provide the extension's local functionality.</p>
+          <h3>Website data and page access</h3>
+          <p>The extension runs on webpages because it provides shortcut and navigation features that depend on the current tab and user interaction on links.</p>
+          <p>Page access is used locally on your device only. The extension does not transmit webpage contents, browsing history, form inputs, or personal information to any external server.</p>
 
-        <h2>Data sharing</h2>
-        <p>No personal data is sold, transferred, or shared with third parties.</p>
+          <h3>Permissions</h3>
+          <p>The extension uses the following Chrome permissions:</p>
+          <ul>
+            <li><code>tabs</code></li>
+            <li><code>windows</code></li>
+            <li><code>activeTab</code></li>
+            <li><code>scripting</code></li>
+            <li>host access on pages required by the extension features</li>
+          </ul>
+          <p>These permissions are used only to provide the extension's local functionality.</p>
 
-        <h2>Contact</h2>
-        <p>If you have questions about this privacy policy, contact the developer through the support or contact details associated with the extension listing.</p>
-      </article>
+          <h3>Data sharing</h3>
+          <p>No personal data is sold, transferred, or shared with third parties.</p>
+
+          <h3>Contact</h3>
+          <p>If you have questions about this privacy policy, contact the developer through the support or contact details associated with the extension listing.</p>
+        </article>
+
+        <article class="card" id="fr" lang="fr">
+          <p class="section-label">Francais</p>
+          <h2>Politique de confidentialite</h2>
+
+          <p>PK Chrome Shortcuts est une extension Chrome qui fournit des raccourcis clavier et des utilitaires de gestion des onglets et fenetres dans Google Chrome.</p>
+
+          <h3>Collecte de donnees</h3>
+          <p>PK Chrome Shortcuts ne collecte, ne stocke, ne vend et ne partage aucune donnee personnelle avec le developpeur ou des tiers.</p>
+          <p>L'extension n'utilise ni analytics, ni traceurs publicitaires, ni journalisation distante, ni base de donnees externe.</p>
+
+          <h3>Fonctionnement de l'extension</h3>
+          <p>L'extension utilise localement sur votre appareil les API Chrome pour :</p>
+          <ul>
+            <li>gerer les onglets et les fenetres</li>
+            <li>ouvrir des pages internes de Chrome comme les favoris, l'historique, les telechargements, les parametres et les raccourcis</li>
+            <li>reagir aux raccourcis clavier et aux gestes de clic optionnels</li>
+            <li>afficher un badge avec le nombre actuel d'onglets ouverts</li>
+          </ul>
+
+          <h3>Acces aux pages web</h3>
+          <p>L'extension fonctionne sur les pages web car elle fournit des fonctions de raccourcis et de navigation qui dependent de l'onglet courant et des interactions de l'utilisateur sur les liens.</p>
+          <p>L'acces aux pages est utilise localement sur votre appareil uniquement. L'extension ne transmet pas le contenu des pages, l'historique de navigation, les champs de formulaire ou des informations personnelles a un serveur externe.</p>
+
+          <h3>Autorisations</h3>
+          <p>L'extension utilise les autorisations Chrome suivantes :</p>
+          <ul>
+            <li><code>tabs</code></li>
+            <li><code>windows</code></li>
+            <li><code>activeTab</code></li>
+            <li><code>scripting</code></li>
+            <li>l'acces aux pages necessaires aux fonctionnalites de l'extension</li>
+          </ul>
+          <p>Ces autorisations sont utilisees uniquement pour fournir les fonctionnalites locales de l'extension.</p>
+
+          <h3>Partage des donnees</h3>
+          <p>Aucune donnee personnelle n'est vendue, transferee ou partagee avec des tiers.</p>
+
+          <h3>Contact</h3>
+          <p>Si vous avez des questions sur cette politique de confidentialite, contactez le developpeur via les informations de support ou de contact associees a la fiche de l'extension.</p>
+        </article>
+      </section>
+
+      <p class="footer">PK Chrome Shortcuts Privacy Policy</p>
     </main>
   </body>
 </html>
