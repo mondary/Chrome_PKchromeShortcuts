@@ -56,6 +56,7 @@
 4. Select `.../Chrome_PKchromeShortcuts/src`
 
 ## 🧾 Changelog
+- `1.23`: removed the unnecessary EN/FR anchor links from the privacy page.
 - `1.22`: enlarged icon2 and made it feel more integrated in the privacy page header.
 - `1.21`: added a large icon.png background accent and language flags to the privacy page.
 - `1.20`: redesigned the HTML privacy page with a cleaner layout, bilingual FR/EN content, and icon2 branding.
