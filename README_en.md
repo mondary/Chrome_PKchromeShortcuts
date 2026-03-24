@@ -20,6 +20,13 @@
 - Open `chrome://extensions/shortcuts` to view/edit shortcuts.
 - The gesture shortcut `Cmd + Option + Click` works directly on links.
 
+## 🗂️ Structure
+- `src/`: canonical Chrome extension source.
+- `extension/`: locally generated release ZIPs.
+- `scripts/`: build and Chrome Web Store publish scripts.
+- `secrets/`: unversioned local sensitive files.
+- `icon.png` and `icon2.png`: project assets kept at the repo root.
+
 ## ⚙️ Settings
 - Shortcuts are managed natively by Chrome in `chrome://extensions/shortcuts`.
 - Some key combos may be reserved by macOS/Chrome.
@@ -45,7 +52,7 @@
 4. Select `.../Chrome_PKchromeShortcuts/src`
 
 ## 🧾 Changelog
-- `1.1`: fixed badge API compatibility (`action/browserAction` fallback) + root manifest support.
+- `1.1`: fixed badge API compatibility (`action/browserAction` fallback).
 - `1.0`: added tab count badge on extension icon.
 - `0.45`: project structure finalized as `src/` (loadable) + `extension/` (release artifacts), release/publish scripts updated.
 - `0.44`: initial folder restructuring.

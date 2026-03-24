@@ -20,6 +20,13 @@
 - Ouvre `chrome://extensions/shortcuts` pour voir/modifier les raccourcis.
 - Le raccourci gestuel `Cmd + Option + clic` fonctionne directement sur les liens.
 
+## 🗂️ Structure
+- `src/`: source canonique de l'extension Chrome.
+- `extension/`: ZIPs de release générés localement.
+- `scripts/`: build et publication Chrome Web Store.
+- `secrets/`: fichiers locaux sensibles non versionnés.
+- `icon.png` et `icon2.png`: assets de projet conservés à la racine.
+
 ## ⚙️ Réglages
 - Les raccourcis sont gérés nativement par Chrome dans `chrome://extensions/shortcuts`.
 - Certaines combinaisons peuvent être réservées par macOS/Chrome.
@@ -45,7 +52,7 @@
 4. Sélectionne `.../Chrome_PKchromeShortcuts/src`
 
 ## 🧾 Changelog
-- `1.1`: correction compatibilité badge (fallback `action/browserAction`) + support manifeste en racine.
+- `1.1`: correction compatibilité badge (fallback `action/browserAction`).
 - `1.0`: ajout du badge compteur d’onglets sur l’icône extension.
 - `0.45`: structure projet en `src/` (chargeable) + `extension/` (artefacts release), scripts release/publish ajustés.
 - `0.44`: réorganisation initiale des dossiers.
