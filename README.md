@@ -45,6 +45,10 @@
 ```
 - Le ZIP est écrit dans `extension/` (`extension/pk-chrome-shortcuts-<version>.zip`).
 
+## 🔒 Confidentialite
+- Politique de confidentialite repo: [PRIVACY.md](PRIVACY.md)
+- Page HTML publiee possible pour le Chrome Web Store: [privacy-policy.html](privacy-policy.html)
+
 ## 🧪 Installation (Chrome)
 1. Ouvre `chrome://extensions`
 2. Active `Developer mode`
@@ -52,6 +56,7 @@
 4. Sélectionne `.../Chrome_PKchromeShortcuts/src`
 
 ## 🧾 Changelog
+- `1.19`: ajout d'une vraie politique de confidentialite dans le repo pour la publication Chrome Web Store.
 - `1.18`: clarification du libelle Cmd+E pour indiquer que la barre de recherche doit etre ouverte.
 - `1.17`: clarification des libelles Cmd+G / Cmd+Shift+G pour la recherche dans la page.
 - `1.16`: mise en avant visuelle des suggestions avec un emoji dedie.

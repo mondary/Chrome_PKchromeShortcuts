@@ -45,6 +45,10 @@
 ```
 - The ZIP is written to `extension/` (`extension/pk-chrome-shortcuts-<version>.zip`).
 
+## 🔒 Privacy
+- Repo privacy policy: [PRIVACY.md](PRIVACY.md)
+- Publishable HTML page for Chrome Web Store: [privacy-policy.html](privacy-policy.html)
+
 ## 🧪 Install (Chrome)
 1. Open `chrome://extensions`
 2. Enable `Developer mode`
@@ -52,6 +56,7 @@
 4. Select `.../Chrome_PKchromeShortcuts/src`
 
 ## 🧾 Changelog
+- `1.19`: added a proper privacy policy to the repo for Chrome Web Store publication.
 - `1.18`: clarified the Cmd+E label to indicate the find bar must already be open.
 - `1.17`: clarified the Cmd+G / Cmd+Shift+G labels for find-in-page navigation.
 - `1.16`: made suggestions more visually obvious with a dedicated emoji.
