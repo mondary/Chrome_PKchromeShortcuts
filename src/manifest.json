@@ -147,7 +147,7 @@
     "c14-detach-current-tab": {
       "suggested_key": {
         "default": "Ctrl+Shift+U",
-        "mac": "Ctrl+Shift+U"
+        "mac": "Command+U"
       },
       "description": "__MSG_cmd_detach_current_tab_desc__"
     },

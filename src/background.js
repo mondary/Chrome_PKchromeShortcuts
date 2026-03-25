@@ -577,6 +577,10 @@ async function goBackCurrentTab() {
 
     await chrome.tabs.goBack(activeTab.id);
   } catch (error) {
+    if (isBenignHistoryNavigationError(error)) {
+      return;
+    }
+
     console.error("[PK Shortcuts] GO_BACK_PAGE failed:", error);
   }
 }
@@ -590,6 +594,10 @@ async function goForwardCurrentTab() {
 
     await chrome.tabs.goForward(activeTab.id);
   } catch (error) {
+    if (isBenignHistoryNavigationError(error)) {
+      return;
+    }
+
     console.error("[PK Shortcuts] GO_FORWARD_PAGE failed:", error);
   }
 }
@@ -744,6 +752,10 @@ async function refreshTabCountBadge() {
     await badgeApi.setBadgeBackgroundColor({ color: BADGE_BG_COLOR });
     await badgeApi.setBadgeText({ text });
   } catch (error) {
+    if (isBenignBadgeError(error)) {
+      return;
+    }
+
     console.error("[PK Shortcuts] REFRESH_TAB_COUNT_BADGE failed:", error);
   }
 }
@@ -758,4 +770,17 @@ function getBadgeApi() {
   }
 
   return null;
+}
+
+function isBenignHistoryNavigationError(error) {
+  const message = String(error?.message || error || "").toLowerCase();
+  return (
+    message.includes("cannot find a next page in history") ||
+    message.includes("cannot find a previous page in history")
+  );
+}
+
+function isBenignBadgeError(error) {
+  const message = String(error?.message || error || "").toLowerCase();
+  return message.includes("no sw");
 }

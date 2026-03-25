@@ -6,7 +6,7 @@
     "message": "Chrome shortcuts: simulated split view and tab utilities."
   },
   "cmd_detach_current_tab_desc": {
-    "message": "🗂️ Detach current tab · Chrome: Not set · 🎯 Suggestion: Cmd+Shift+U"
+    "message": "🗂️ Detach current tab · Chrome: Not set · 🎯 Suggestion: Cmd+U"
   },
   "cmd_select_previous_tab_desc": {
     "message": "🧭 Select previous tab · Chrome: Cmd+Option+Left"

@@ -6,7 +6,7 @@
     "message": "Raccourcis Chrome : split simule et utilitaires d'onglets."
   },
   "cmd_detach_current_tab_desc": {
-    "message": "🗂️ Detacher l'onglet actif · Chrome: Non defini · 🎯 Suggestion: Cmd+Shift+U"
+    "message": "🗂️ Detacher l'onglet actif · Chrome: Non defini · 🎯 Suggestion: Cmd+U"
   },
   "cmd_select_previous_tab_desc": {
     "message": "🧭 Selectionner l'onglet precedent · Chrome: Cmd+Option+Left"
