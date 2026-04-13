@@ -1,8 +1,12 @@
 let lastSplitOpen = { url: "", at: 0 };
+let lastSelectionText = "";
+let selectionTimer = null;
 
 document.addEventListener("mousedown", onSplitGesture, true);
 document.addEventListener("click", onSplitGesture, true);
 window.addEventListener("keydown", onNavigationHotkeys, true);
+
+document.addEventListener("selectionchange", onSelectionChange, true);
 
 function onSplitGesture(event) {
   if (event.defaultPrevented || event.button !== 0) {
@@ -116,4 +120,35 @@ function isCmdOptionArrowRight(event) {
     !event.shiftKey &&
     event.key === "ArrowRight"
   );
+}
+
+function onSelectionChange() {
+  const selection = window.getSelection();
+  const selectedText = selection.toString().trim();
+
+  if (selectedText) {
+    if (selectionTimer) {
+      clearTimeout(selectionTimer);
+    }
+
+    selectionTimer = setTimeout(() => {
+      if (window.getSelection().toString().trim() === selectedText) {
+        copyToClipboard(selectedText);
+      }
+    }, 200);
+  } else {
+    if (selectionTimer) {
+      clearTimeout(selectionTimer);
+      selectionTimer = null;
+    }
+  }
+}
+
+async function copyToClipboard(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+    console.log("[PK Shortcuts] Copied to clipboard:", text);
+  } catch (error) {
+    console.error("[PK Shortcuts] Failed to copy:", error);
+  }
 }

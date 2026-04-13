@@ -56,6 +56,7 @@
 4. Sélectionne `.../Chrome_PKchromeShortcuts/src`
 
 ## 🧾 Changelog
+- `1.24`: ajout copie automatique de texte sélectionné.
 - `1.23`: suppression des ancres EN/FR inutiles sur la page de confidentialite.
 - `1.22`: icon2 agrandi et integre plus sobrement dans le header de la page de confidentialite.
 - `1.21`: ajout d'un fond visuel avec icon.png et drapeaux de langue sur la page de confidentialite.
