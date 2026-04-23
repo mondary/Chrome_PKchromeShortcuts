@@ -7,3 +7,4 @@ secrets/*
 extension/*.zip
 extension/*.crx
 extension/*.pem
+.agent

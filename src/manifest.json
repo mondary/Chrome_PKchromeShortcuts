@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "__MSG_extName__",
-  "version": "1.24",
+  "version": "1.25",
   "description": "__MSG_extDescription__",
   "icons": {
     "16": "icon.png",
@@ -14,6 +14,7 @@
     "windows",
     "activeTab",
     "scripting",
+    "storage",
     "clipboardWrite"
   ],
   "host_permissions": [
@@ -235,6 +236,9 @@
     },
     "g02-native-split-view": {
       "description": "__MSG_cmd_native_split_view_desc__"
+    },
+    "c16-toggle-autocopy": {
+      "description": "__MSG_cmd_toggle_autocopy_desc__"
     }
   },
   "content_scripts": [

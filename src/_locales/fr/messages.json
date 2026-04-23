@@ -1,6 +1,6 @@
 {
   "extName": {
-    "message": "⚡ PK Chrome Shortcuts (66)"
+    "message": "⚡ PK Chrome Shortcuts (67)"
   },
   "extDescription": {
     "message": "Raccourcis Chrome : split simule et utilitaires d'onglets."
@@ -202,5 +202,8 @@
   },
   "cmd_memo_open_home_page_desc": {
     "message": "🌐 Ouvrir la page d'accueil · Chrome: Cmd+Shift+H"
+  },
+  "cmd_toggle_autocopy_desc": {
+    "message": "📋 Activer/desactiver la copie automatique · Chrome: Non defini · 🎯 Suggestion: Cmd+Shift+C"
   }
 }

@@ -1,6 +1,6 @@
 {
   "extName": {
-    "message": "⚡ PK Chrome Shortcuts (66)"
+    "message": "⚡ PK Chrome Shortcuts (67)"
   },
   "extDescription": {
     "message": "Chrome shortcuts: simulated split view and tab utilities."
@@ -202,5 +202,8 @@
   },
   "cmd_memo_open_home_page_desc": {
     "message": "🌐 Open Home page · Chrome: Cmd+Shift+H"
+  },
+  "cmd_toggle_autocopy_desc": {
+    "message": "📋 Toggle automatic copy on selection · Chrome: Not set · 🎯 Suggestion: Cmd+Shift+C"
   }
 }

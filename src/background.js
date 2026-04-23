@@ -91,6 +91,11 @@ chrome.commands.onCommand.addListener(async (command) => {
     return;
   }
 
+  if (command === "c16-toggle-autocopy") {
+    await toggleAutoCopy();
+    return;
+  }
+
   if (command === "g01-split-active-tab-simulated") {
     await splitActiveTabSimulated();
     return;
@@ -749,7 +754,9 @@ async function refreshTabCountBadge() {
     const tabs = await chrome.tabs.query({});
     const count = tabs.length;
     const text = count > 999 ? "999+" : String(count);
-    await badgeApi.setBadgeBackgroundColor({ color: BADGE_BG_COLOR });
+    const { autoCopyEnabled } = await chrome.storage.sync.get({ autoCopyEnabled: true });
+    const color = autoCopyEnabled ? BADGE_BG_COLOR : "#B71C1C";
+    await badgeApi.setBadgeBackgroundColor({ color });
     await badgeApi.setBadgeText({ text });
   } catch (error) {
     if (isBenignBadgeError(error)) {
@@ -783,4 +790,24 @@ function isBenignHistoryNavigationError(error) {
 function isBenignBadgeError(error) {
   const message = String(error?.message || error || "").toLowerCase();
   return message.includes("no sw");
+}
+
+async function toggleAutoCopy() {
+  try {
+    const result = await chrome.storage.sync.get({ autoCopyEnabled: true });
+    const newState = !result.autoCopyEnabled;
+    await chrome.storage.sync.set({ autoCopyEnabled: newState });
+    console.log(`[PK Shortcuts] Auto-copy ${newState ? "ON" : "OFF"}`);
+
+    const badgeApi = getBadgeApi();
+    if (badgeApi) {
+      await badgeApi.setBadgeBackgroundColor({ color: newState ? "#2E7D32" : "#B71C1C" });
+      await badgeApi.setBadgeText({ text: newState ? "ON" : "OFF" });
+      setTimeout(() => {
+        void refreshTabCountBadge();
+      }, 1200);
+    }
+  } catch (error) {
+    console.error("[PK Shortcuts] TOGGLE_AUTOCOPY failed:", error);
+  }
 }

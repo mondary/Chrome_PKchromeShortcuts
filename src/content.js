@@ -131,9 +131,12 @@ function onSelectionChange() {
       clearTimeout(selectionTimer);
     }
 
-    selectionTimer = setTimeout(() => {
+    selectionTimer = setTimeout(async () => {
       if (window.getSelection().toString().trim() === selectedText) {
-        copyToClipboard(selectedText);
+        const result = await chrome.storage.sync.get({ autoCopyEnabled: true });
+        if (result.autoCopyEnabled) {
+          copyToClipboard(selectedText);
+        }
       }
     }, 200);
   } else {
