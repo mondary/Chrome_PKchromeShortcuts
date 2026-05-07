@@ -55,10 +55,10 @@ if [[ ! -f "$SOURCE_DIR/manifest.json" ]]; then
   exit 1
 fi
 
-if [[ -f .env ]]; then
+if [[ -f secrets/.env ]]; then
   set -a
   # shellcheck disable=SC1091
-  source .env
+  source secrets/.env
   set +a
 fi
 
