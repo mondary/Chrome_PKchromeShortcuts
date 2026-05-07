@@ -56,7 +56,7 @@
 4. Sélectionne `.../Chrome_PKchromeShortcuts/src`
 
 ## 🧾 Changelog
-- `1.25`: toggle copie automatique sur selection (Cmd+Shift+C).
+- `1.26`: delais augmentes pour la copie automatique (1.5s + 2s cooldown).
 - `1.24`: ajout copie automatique de texte sélectionné.
 - `1.23`: suppression des ancres EN/FR inutiles sur la page de confidentialite.
 - `1.22`: icon2 agrandi et integre plus sobrement dans le header de la page de confidentialite.

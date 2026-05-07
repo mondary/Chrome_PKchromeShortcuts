@@ -1,6 +1,10 @@
 let lastSplitOpen = { url: "", at: 0 };
 let lastSelectionText = "";
 let selectionTimer = null;
+let lastCopiedText = "";
+let lastCopyTime = 0;
+const COPY_COOLDOWN = 2000; // ms avant de pouvoir copier à nouveau
+const SELECTION_DELAY = 1500; // ms d'attente après la fin de la sélection
 
 document.addEventListener("mousedown", onSplitGesture, true);
 document.addEventListener("click", onSplitGesture, true);
@@ -132,13 +136,20 @@ function onSelectionChange() {
     }
 
     selectionTimer = setTimeout(async () => {
-      if (window.getSelection().toString().trim() === selectedText) {
+      const currentSelection = window.getSelection().toString().trim();
+      if (currentSelection === selectedText) {
         const result = await chrome.storage.sync.get({ autoCopyEnabled: true });
         if (result.autoCopyEnabled) {
-          copyToClipboard(selectedText);
+          const now = Date.now();
+          // Vérifier le cool-down et que ce n'est pas le même texte que précédemment
+          if (selectedText !== lastCopiedText || (now - lastCopyTime) > COPY_COOLDOWN) {
+            copyToClipboard(selectedText);
+            lastCopiedText = selectedText;
+            lastCopyTime = now;
+          }
         }
       }
-    }, 200);
+    }, SELECTION_DELAY);
   } else {
     if (selectionTimer) {
       clearTimeout(selectionTimer);
