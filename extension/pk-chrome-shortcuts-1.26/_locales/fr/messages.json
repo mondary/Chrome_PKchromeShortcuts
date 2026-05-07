@@ -1,0 +1,209 @@
+{
+  "extName": {
+    "message": "⚡ PK Chrome Shortcuts (67)"
+  },
+  "extDescription": {
+    "message": "Raccourcis Chrome : split simule et utilitaires d'onglets."
+  },
+  "cmd_detach_current_tab_desc": {
+    "message": "🗂️ Detacher l'onglet actif · Chrome: Non defini · 🎯 Suggestion: Cmd+U"
+  },
+  "cmd_select_previous_tab_desc": {
+    "message": "🧭 Selectionner l'onglet precedent · Chrome: Cmd+Option+Left"
+  },
+  "cmd_select_next_tab_desc": {
+    "message": "🧭 Selectionner l'onglet suivant · Chrome: Cmd+Option+Right"
+  },
+  "cmd_move_current_tab_left_desc": {
+    "message": "🗂️ Deplacer l'onglet actif a gauche · Chrome: Ctrl+Shift+PgUp · 🎯 Suggestion: Cmd+Left"
+  },
+  "cmd_move_current_tab_right_desc": {
+    "message": "🗂️ Deplacer l'onglet actif a droite · Chrome: Ctrl+Shift+PgDn · 🎯 Suggestion: Cmd+Right"
+  },
+  "cmd_move_current_tab_first_desc": {
+    "message": "🗂️ Deplacer l'onglet actif en premier · Chrome: Non defini"
+  },
+  "cmd_move_current_tab_last_desc": {
+    "message": "🗂️ Deplacer l'onglet actif en dernier · Chrome: Non defini"
+  },
+  "cmd_close_current_tab_desc": {
+    "message": "🗂️ Fermer l'onglet actif · Chrome: Cmd+W"
+  },
+  "cmd_new_tab_desc": {
+    "message": "🗂️ Nouvel onglet · Chrome: Cmd+T"
+  },
+  "cmd_new_window_desc": {
+    "message": "🪟 Nouvelle fenetre · Chrome: Cmd+N"
+  },
+  "cmd_new_incognito_window_desc": {
+    "message": "🪟 Nouvelle fenetre de navigation privee · Chrome: Cmd+Shift+N"
+  },
+  "cmd_duplicate_current_tab_desc": {
+    "message": "🗂️ Dupliquer l'onglet actif · Chrome: Non defini · 🎯 Suggestion: Cmd+D"
+  },
+  "cmd_reload_current_tab_desc": {
+    "message": "🗂️ Recharger l'onglet · Chrome: Cmd+R"
+  },
+  "cmd_hard_reload_current_tab_desc": {
+    "message": "🗂️ Recharger l'onglet (force) · Chrome: Cmd+Shift+R"
+  },
+  "cmd_unload_current_tab_desc": {
+    "message": "🗂️ Decharger l'onglet de la memoire · Chrome: Non defini"
+  },
+  "cmd_go_back_page_desc": {
+    "message": "🧭 Revenir a la page precedente · Chrome: Cmd+[ ou Cmd+Left · 🎯 Suggestion: Alt+Left"
+  },
+  "cmd_go_forward_page_desc": {
+    "message": "🧭 Aller a la page suivante · Chrome: Cmd+] ou Cmd+Right · 🎯 Suggestion: Alt+Right"
+  },
+  "cmd_split_active_tab_simulated_desc": {
+    "message": "↔️ Split de l'onglet actif (simule) · Chrome: Non defini · 🎯 Suggestion: Cmd+Option+Click"
+  },
+  "cmd_native_split_view_desc": {
+    "message": "↔️ Split View natif Chrome · Chrome: Cmd+Option+N"
+  },
+  "cmd_navigate_last_active_tab_desc": {
+    "message": "🧭 Aller au dernier onglet actif · Chrome: Non defini"
+  },
+  "cmd_select_first_tab_desc": {
+    "message": "🧭 Aller au premier onglet · Chrome: Non defini"
+  },
+  "cmd_select_last_tab_desc": {
+    "message": "🧭 Aller au dernier onglet · Chrome: Cmd+9"
+  },
+  "cmd_toggle_pin_tab_desc": {
+    "message": "🗂️ Epingler / desepingler l'onglet actif · Chrome: Non defini"
+  },
+  "cmd_toggle_mute_tab_desc": {
+    "message": "🗂️ Couper / activer le son de l'onglet actif · Chrome: Non defini"
+  },
+  "cmd_search_and_jump_desc": {
+    "message": "🧭 Rechercher et aller · Chrome: Cmd+Shift+A"
+  },
+  "cmd_search_in_background_desc": {
+    "message": "🧭 Rechercher en arriere-plan · Chrome: Non defini"
+  },
+  "cmd_open_chrome_bookmarks_desc": {
+    "message": "🌐 Ouvrir les favoris Chrome (chrome://bookmarks) · Chrome: Cmd+Option+B"
+  },
+  "cmd_open_chrome_downloads_desc": {
+    "message": "🌐 Ouvrir les telechargements Chrome (chrome://downloads) · Chrome: Cmd+Shift+J"
+  },
+  "cmd_open_chrome_extensions_desc": {
+    "message": "🌐 Ouvrir les extensions (chrome://extensions) · Chrome: Non defini"
+  },
+  "cmd_open_extension_shortcuts_desc": {
+    "message": "🌐 Ouvrir les raccourcis des extensions (chrome://extensions/shortcuts) · Chrome: Non defini"
+  },
+  "cmd_open_chrome_flags_desc": {
+    "message": "🌐 Ouvrir les flags Chrome (chrome://flags) · Chrome: Non defini"
+  },
+  "cmd_open_chrome_help_desc": {
+    "message": "🌐 Ouvrir l'aide Chrome (chrome://help) · Chrome: Non defini"
+  },
+  "cmd_open_chrome_history_desc": {
+    "message": "🌐 Ouvrir l'historique Chrome (chrome://history) · Chrome: Cmd+Y"
+  },
+  "cmd_open_chrome_settings_desc": {
+    "message": "🌐 Ouvrir les parametres Chrome (chrome://settings) · Chrome: Cmd+,"
+  },
+  "cmd_memo_reopen_closed_tab_desc": {
+    "message": "🗂️ Rouvrir l'onglet ferme · Chrome: Cmd+Shift+T"
+  },
+  "cmd_memo_jump_to_specific_tab_desc": {
+    "message": "🧭 Aller a un onglet precis · Chrome: Cmd+1 a Cmd+8, Cmd+9"
+  },
+  "cmd_memo_close_current_window_desc": {
+    "message": "🪟 Fermer la fenetre courante · Chrome: Cmd+Shift+W"
+  },
+  "cmd_memo_minimize_window_desc": {
+    "message": "🪟 Minimiser la fenetre · Chrome: Cmd+M"
+  },
+  "cmd_memo_hide_chrome_desc": {
+    "message": "🪟 Masquer Chrome · Chrome: Cmd+H"
+  },
+  "cmd_memo_quit_chrome_desc": {
+    "message": "🪟 Quitter Chrome · Chrome: Cmd+Q"
+  },
+  "cmd_memo_toggle_bookmarks_bar_desc": {
+    "message": "🌐 Afficher/masquer la barre de favoris · Chrome: Cmd+Shift+B"
+  },
+  "cmd_memo_open_find_bar_desc": {
+    "message": "🧭 Ouvrir la barre de recherche dans la page · Chrome: Cmd+F"
+  },
+  "cmd_memo_find_next_match_desc": {
+    "message": "🧭 Recherche dans la page: resultat suivant · Chrome: Cmd+G"
+  },
+  "cmd_memo_find_previous_match_desc": {
+    "message": "🧭 Recherche dans la page: resultat precedent · Chrome: Cmd+Shift+G"
+  },
+  "cmd_memo_search_selected_text_desc": {
+    "message": "🧭 Recherche dans la page: utiliser la selection (barre ouverte) · Chrome: Cmd+E"
+  },
+  "cmd_memo_open_devtools_desc": {
+    "message": "🛠️ Ouvrir les DevTools · Chrome: Cmd+Option+I"
+  },
+  "cmd_memo_open_delete_browsing_data_desc": {
+    "message": "🌐 Ouvrir supprimer les donnees de navigation · Chrome: Cmd+Shift+Delete"
+  },
+  "cmd_memo_focus_main_menu_desc": {
+    "message": "🌐 Aller a la barre de menu principale · Chrome: Control+F2"
+  },
+  "cmd_memo_cycle_focus_toolbars_desc": {
+    "message": "🌐 Cycle focus dialogues/barres d'outils · Chrome: Cmd+Option+Up ou Down"
+  },
+  "cmd_memo_open_feedback_form_desc": {
+    "message": "🌐 Ouvrir le formulaire de feedback · Chrome: Cmd+Option+Shift+I"
+  },
+  "cmd_memo_toggle_caret_browsing_desc": {
+    "message": "🌐 Activer la navigation au curseur · Chrome: F7"
+  },
+  "cmd_memo_focus_inactive_dialogs_desc": {
+    "message": "🌐 Focus sur dialogues inactifs · Chrome: Cmd+Option+Shift+A"
+  },
+  "cmd_memo_focus_address_bar_desc": {
+    "message": "🌐 Focus barre d'adresse · Chrome: Cmd+L"
+  },
+  "cmd_memo_print_page_desc": {
+    "message": "📄 Imprimer la page · Chrome: Cmd+P"
+  },
+  "cmd_memo_save_page_desc": {
+    "message": "📄 Enregistrer la page · Chrome: Cmd+S"
+  },
+  "cmd_memo_page_setup_desc": {
+    "message": "📄 Mise en page · Chrome: Cmd+Option+P"
+  },
+  "cmd_memo_open_file_desc": {
+    "message": "📄 Ouvrir un fichier dans Chrome · Chrome: Cmd+O"
+  },
+  "cmd_memo_view_source_desc": {
+    "message": "📄 Afficher le code source · Chrome: Cmd+Option+U"
+  },
+  "cmd_memo_open_js_console_desc": {
+    "message": "🛠️ Ouvrir la console JavaScript · Chrome: Cmd+Option+J"
+  },
+  "cmd_memo_save_bookmark_desc": {
+    "message": "🌐 Enregistrer la page en favori · Chrome: Cmd+D"
+  },
+  "cmd_memo_save_all_tabs_as_bookmarks_desc": {
+    "message": "🌐 Enregistrer tous les onglets en favoris · Chrome: Cmd+Shift+D"
+  },
+  "cmd_memo_zoom_in_desc": {
+    "message": "📄 Zoom avant · Chrome: Cmd++"
+  },
+  "cmd_memo_zoom_out_desc": {
+    "message": "📄 Zoom arriere · Chrome: Cmd+-"
+  },
+  "cmd_memo_zoom_reset_desc": {
+    "message": "📄 Zoom par defaut · Chrome: Cmd+0"
+  },
+  "cmd_memo_search_web_desc": {
+    "message": "🌐 Recherche web · Chrome: Cmd+Option+F"
+  },
+  "cmd_memo_open_home_page_desc": {
+    "message": "🌐 Ouvrir la page d'accueil · Chrome: Cmd+Shift+H"
+  },
+  "cmd_toggle_autocopy_desc": {
+    "message": "📋 Activer/desactiver la copie automatique · Chrome: Non defini · 🎯 Suggestion: Cmd+Shift+C"
+  }
+}
