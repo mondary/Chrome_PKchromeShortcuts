@@ -6,6 +6,7 @@ const MIN_SPLIT_HEIGHT = 600;
 const windowHistory = new Map();
 const BADGE_BG_COLOR = "#0B0B0B";
 let badgeRefreshTimer = null;
+let windowGroupHistory = new Map();
 
 chrome.runtime.onInstalled.addListener(() => {
   logCommandShortcuts();
@@ -17,7 +18,7 @@ chrome.runtime.onStartup.addListener(() => {
   scheduleBadgeRefresh();
 });
 
-chrome.tabs.onActivated.addListener(({ tabId, windowId }) => {
+chrome.tabs.onActivated.addListener(async ({ tabId, windowId }) => {
   const previous = windowHistory.get(windowId);
   if (!previous) {
     windowHistory.set(windowId, { currentTabId: tabId, lastTabId: null });
@@ -27,6 +28,9 @@ chrome.tabs.onActivated.addListener(({ tabId, windowId }) => {
   if (previous.currentTabId !== tabId) {
     windowHistory.set(windowId, { currentTabId: tabId, lastTabId: previous.currentTabId });
   }
+
+  // Auto-collapse group feature
+  await handleAutoCollapseGroups(tabId, windowId);
 });
 
 chrome.tabs.onRemoved.addListener((tabId) => {
@@ -39,6 +43,7 @@ chrome.tabs.onRemoved.addListener((tabId) => {
     }
   }
 
+  windowGroupHistory.delete(tabId);
   scheduleBadgeRefresh();
 });
 
@@ -104,6 +109,11 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       return true; // keep channel open for async sendResponse
     }
     translateForContentScript(message.text, sender.tab?.id);
+  }
+
+  if (message.type === "GROUP_COLLAPSED") {
+    windowGroupHistory.delete(message.tabId);
+    return;
   }
 });
 
@@ -1059,5 +1069,41 @@ async function triggerTranslateSelection() {
   } catch (err) {
     console.error("[PK Shortcuts] TRIGGER_TRANSLATE failed:", err);
     await flashBadge("ERR", "#B71C1C");
+  }
+}
+
+async function handleAutoCollapseGroups(tabId, windowId) {
+  try {
+    const stored = await chrome.storage.sync.get({ feature_auto_collapse_groups: true });
+    if (!stored.feature_auto_collapse_groups) return;
+
+    const tab = await chrome.tabs.get(tabId);
+    if (!tab?.groupId || tab.groupId === chrome.tabGroups.TAB_GROUP_ID_NONE) {
+      // Not in a group, or special case
+      return;
+    }
+
+    const currentGroupId = tab.groupId;
+
+    // Track this tab in the group history for this window
+    const windowGroups = windowGroupHistory.get(windowId) || new Set();
+    const previousGroups = [...windowGroups].filter(groupId => groupId !== currentGroupId);
+    windowGroups.add(currentGroupId);
+    windowGroupHistory.set(windowId, windowGroups);
+
+    // Collapse previous groups
+    for (const groupId of previousGroups) {
+      try {
+        const group = await chrome.tabGroups.get(groupId);
+        if (group && group.windowId === windowId && !group.collapsed) {
+          await chrome.tabGroups.update(groupId, { collapsed: true });
+        }
+      } catch (error) {
+        // Group might not exist anymore, ignore
+        console.warn(`[PK Shortcuts] Could not collapse group ${groupId}:`, error);
+      }
+    }
+  } catch (error) {
+    console.error("[PK Shortcuts] AUTO_COLLAPSE_GROUPS failed:", error);
   }
 }

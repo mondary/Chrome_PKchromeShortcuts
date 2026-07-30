@@ -17,7 +17,8 @@ const DEFAULTS = {
   feature_translate: true,
   translate_target_lang: "auto",
   translate_trigger: "auto",
-  translate_api: "google_mymemory"
+  translate_api: "google_mymemory",
+  feature_auto_collapse_groups: true
 };
 
 const STORAGE_KEYS = Object.keys(DEFAULTS);
