@@ -11,13 +11,11 @@ const windowGroupHistory = new Map();
 chrome.runtime.onInstalled.addListener(() => {
   logCommandShortcuts();
   scheduleBadgeRefresh();
-  void initActiveGroups();
 });
 
 chrome.runtime.onStartup.addListener(() => {
   logCommandShortcuts();
   scheduleBadgeRefresh();
-  void initActiveGroups();
 });
 
 chrome.tabs.onActivated.addListener(async ({ tabId, windowId }) => {
@@ -1077,50 +1075,18 @@ async function handleAutoCollapseGroups(tabId, windowId) {
   try {
     const stored = await chrome.storage.sync.get({ feature_auto_collapse_groups: true });
     if (!stored.feature_auto_collapse_groups) return;
-    if (!chrome.tabGroups) return;
+    if (!chrome.tabGroups?.query || !chrome.tabGroups?.update) return;
 
     const tab = await chrome.tabs.get(tabId);
     const currentGroupId = tab?.groupId ?? -1;
 
-    const sessionKey = `pk_active_group_${windowId}`;
-    const session = await chrome.storage.session.get(sessionKey);
-    const previousGroupId = session[sessionKey];
-
-    if (
-      typeof previousGroupId === "number" &&
-      previousGroupId > -1 &&
-      previousGroupId !== currentGroupId
-    ) {
-      try {
-        const group = await chrome.tabGroups.get(previousGroupId);
-        if (group && group.windowId === windowId && !group.collapsed) {
-          await chrome.tabGroups.update(previousGroupId, { collapsed: true });
-        }
-      } catch {
-        // Group might not exist anymore, ignore
+    const groups = await chrome.tabGroups.query({ windowId });
+    for (const group of groups) {
+      if (group.id !== currentGroupId && !group.collapsed) {
+        await chrome.tabGroups.update(group.id, { collapsed: true });
       }
     }
-
-    await chrome.storage.session.set({ [sessionKey]: currentGroupId });
   } catch (error) {
     console.error("[PK Shortcuts] AUTO_COLLAPSE_GROUPS failed:", error);
-  }
-}
-
-async function initActiveGroups() {
-  try {
-    if (!chrome.tabGroups) return;
-    const windows = await chrome.windows.getAll({ populate: false });
-    const entries = {};
-    for (const win of windows) {
-      const [activeTab] = await chrome.tabs.query({ active: true, windowId: win.id });
-      const groupId = activeTab?.groupId ?? -1;
-      entries[`pk_active_group_${win.id}`] = groupId;
-    }
-    if (Object.keys(entries).length > 0) {
-      await chrome.storage.session.set(entries);
-    }
-  } catch (error) {
-    console.error("[PK Shortcuts] INIT_ACTIVE_GROUPS failed:", error);
   }
 }
