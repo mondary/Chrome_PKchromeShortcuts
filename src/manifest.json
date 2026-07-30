@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "__MSG_extName__",
   "short_name": "PK-Labs Keys",
-  "version": "1.2026.38",
+  "version": "1.2026.39",
   "description": "__MSG_extDescription__",
   "icons": {
     "16": "icon.png",
@@ -131,15 +131,15 @@
     },
     "c05-move-current-tab-left": {
       "suggested_key": {
-        "default": "Ctrl+Left",
-        "mac": "Command+Left"
+        "default": "Alt+Shift+Left",
+        "mac": "Alt+Shift+Left"
       },
       "description": "__MSG_cmd_move_current_tab_left_desc__"
     },
     "c06-move-current-tab-right": {
       "suggested_key": {
-        "default": "Ctrl+Right",
-        "mac": "Command+Right"
+        "default": "Alt+Shift+Right",
+        "mac": "Alt+Shift+Right"
       },
       "description": "__MSG_cmd_move_current_tab_right_desc__"
     },
@@ -166,8 +166,8 @@
     },
     "c14-detach-current-tab": {
       "suggested_key": {
-        "default": "Ctrl+Shift+U",
-        "mac": "Command+U"
+        "default": "Alt+Shift+U",
+        "mac": "Alt+Shift+U"
       },
       "description": "__MSG_cmd_detach_current_tab_desc__"
     },

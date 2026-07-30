@@ -6,7 +6,7 @@
     "message": "67 keyboard shortcuts for Chrome. Made by PK-Labs."
   },
   "cmd_detach_current_tab_desc": {
-    "message": "🗂️ Detach current tab · Chrome: Not set · 🎯 Suggestion: Cmd+U"
+    "message": "🗂️ Detach current tab · Chrome: Not set · 🎯 Suggestion: Alt+Shift+U"
   },
   "cmd_select_previous_tab_desc": {
     "message": "🧭 Select previous tab · Chrome: Cmd+Option+Left"
@@ -15,10 +15,10 @@
     "message": "🧭 Select next tab · Chrome: Cmd+Option+Right"
   },
   "cmd_move_current_tab_left_desc": {
-    "message": "🗂️ Move current tab left · Chrome: Ctrl+Shift+PgUp · 🎯 Suggestion: Cmd+Left"
+    "message": "🗂️ Move current tab left · Chrome: Ctrl+Shift+PgUp · 🎯 Suggestion: Alt+Shift+Left"
   },
   "cmd_move_current_tab_right_desc": {
-    "message": "🗂️ Move current tab right · Chrome: Ctrl+Shift+PgDn · 🎯 Suggestion: Cmd+Right"
+    "message": "🗂️ Move current tab right · Chrome: Ctrl+Shift+PgDn · 🎯 Suggestion: Alt+Shift+Right"
   },
   "cmd_move_current_tab_first_desc": {
     "message": "🗂️ Move current tab to first · Chrome: Not set"
@@ -39,7 +39,7 @@
     "message": "🪟 New incognito window · Chrome: Cmd+Shift+N"
   },
   "cmd_duplicate_current_tab_desc": {
-    "message": "🗂️ Duplicate current tab · Chrome: Not set · 🎯 Suggestion: Cmd+D"
+    "message": "🗂️ Duplicate current tab · Chrome: Not set · 🎯 Suggestion: Alt+Shift+D"
   },
   "cmd_reload_current_tab_desc": {
     "message": "🗂️ Reload tab · Chrome: Cmd+R"
@@ -51,10 +51,10 @@
     "message": "🗂️ Unload tab from memory · Chrome: Not set"
   },
   "cmd_go_back_page_desc": {
-    "message": "🧭 Go back to previous page · Chrome: Cmd+[ or Cmd+Left · 🎯 Suggestion: Alt+Left"
+    "message": "🧭 Go back to previous page · Chrome: Cmd+[ or Alt+Left · 🎯 Suggestion: Ctrl+Left"
   },
   "cmd_go_forward_page_desc": {
-    "message": "🧭 Go forward to next page · Chrome: Cmd+] or Cmd+Right · 🎯 Suggestion: Alt+Right"
+    "message": "🧭 Go forward to next page · Chrome: Cmd+] or Alt+Right · 🎯 Suggestion: Ctrl+Right"
   },
   "cmd_split_active_tab_simulated_desc": {
     "message": "↔️ Split active tab (simulated) · Chrome: Not set · 🎯 Suggestion: Cmd+Option+Click"

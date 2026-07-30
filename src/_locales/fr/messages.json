@@ -6,7 +6,7 @@
     "message": "67 raccourcis clavier pour Chrome. Made by PK-Labs."
   },
   "cmd_detach_current_tab_desc": {
-    "message": "🗂️ Detacher l'onglet actif · Chrome: Non defini · 🎯 Suggestion: Cmd+U"
+    "message": "🗂️ Detacher l'onglet actif · Chrome: Non defini · 🎯 Suggestion: Alt+Shift+U"
   },
   "cmd_select_previous_tab_desc": {
     "message": "🧭 Selectionner l'onglet precedent · Chrome: Cmd+Option+Left"
@@ -15,10 +15,10 @@
     "message": "🧭 Selectionner l'onglet suivant · Chrome: Cmd+Option+Right"
   },
   "cmd_move_current_tab_left_desc": {
-    "message": "🗂️ Deplacer l'onglet actif a gauche · Chrome: Ctrl+Shift+PgUp · 🎯 Suggestion: Cmd+Left"
+    "message": "🗂️ Deplacer l'onglet actif a gauche · Chrome: Ctrl+Shift+PgUp · 🎯 Suggestion: Alt+Shift+Left"
   },
   "cmd_move_current_tab_right_desc": {
-    "message": "🗂️ Deplacer l'onglet actif a droite · Chrome: Ctrl+Shift+PgDn · 🎯 Suggestion: Cmd+Right"
+    "message": "🗂️ Deplacer l'onglet actif a droite · Chrome: Ctrl+Shift+PgDn · 🎯 Suggestion: Alt+Shift+Right"
   },
   "cmd_move_current_tab_first_desc": {
     "message": "🗂️ Deplacer l'onglet actif en premier · Chrome: Non defini"
@@ -39,7 +39,7 @@
     "message": "🪟 Nouvelle fenetre de navigation privee · Chrome: Cmd+Shift+N"
   },
   "cmd_duplicate_current_tab_desc": {
-    "message": "🗂️ Dupliquer l'onglet actif · Chrome: Non defini · 🎯 Suggestion: Cmd+D"
+    "message": "🗂️ Dupliquer l'onglet actif · Chrome: Non defini · 🎯 Suggestion: Alt+Shift+D"
   },
   "cmd_reload_current_tab_desc": {
     "message": "🗂️ Recharger l'onglet · Chrome: Cmd+R"
@@ -51,10 +51,10 @@
     "message": "🗂️ Decharger l'onglet de la memoire · Chrome: Non defini"
   },
   "cmd_go_back_page_desc": {
-    "message": "🧭 Revenir a la page precedente · Chrome: Cmd+[ ou Cmd+Left · 🎯 Suggestion: Alt+Left"
+    "message": "🧭 Revenir a la page precedente · Chrome: Cmd+[ ou Alt+Left · 🎯 Suggestion: Ctrl+Left"
   },
   "cmd_go_forward_page_desc": {
-    "message": "🧭 Aller a la page suivante · Chrome: Cmd+] ou Cmd+Right · 🎯 Suggestion: Alt+Right"
+    "message": "🧭 Aller a la page suivante · Chrome: Cmd+] ou Alt+Right · 🎯 Suggestion: Ctrl+Right"
   },
   "cmd_split_active_tab_simulated_desc": {
     "message": "↔️ Split de l'onglet actif (simule) · Chrome: Non defini · 🎯 Suggestion: Cmd+Option+Click"
