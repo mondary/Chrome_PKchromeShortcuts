@@ -7,16 +7,17 @@ const windowHistory = new Map();
 const BADGE_BG_COLOR = "#0B0B0B";
 let badgeRefreshTimer = null;
 const windowGroupHistory = new Map();
-const windowActiveGroup = new Map();
 
 chrome.runtime.onInstalled.addListener(() => {
   logCommandShortcuts();
   scheduleBadgeRefresh();
+  void initActiveGroups();
 });
 
 chrome.runtime.onStartup.addListener(() => {
   logCommandShortcuts();
   scheduleBadgeRefresh();
+  void initActiveGroups();
 });
 
 chrome.tabs.onActivated.addListener(async ({ tabId, windowId }) => {
@@ -1076,13 +1077,14 @@ async function handleAutoCollapseGroups(tabId, windowId) {
   try {
     const stored = await chrome.storage.sync.get({ feature_auto_collapse_groups: true });
     if (!stored.feature_auto_collapse_groups) return;
-
     if (!chrome.tabGroups) return;
 
     const tab = await chrome.tabs.get(tabId);
     const currentGroupId = tab?.groupId ?? -1;
 
-    const previousGroupId = windowActiveGroup.get(windowId);
+    const sessionKey = `pk_active_group_${windowId}`;
+    const session = await chrome.storage.session.get(sessionKey);
+    const previousGroupId = session[sessionKey];
 
     if (
       typeof previousGroupId === "number" &&
@@ -1099,8 +1101,26 @@ async function handleAutoCollapseGroups(tabId, windowId) {
       }
     }
 
-    windowActiveGroup.set(windowId, currentGroupId);
+    await chrome.storage.session.set({ [sessionKey]: currentGroupId });
   } catch (error) {
     console.error("[PK Shortcuts] AUTO_COLLAPSE_GROUPS failed:", error);
+  }
+}
+
+async function initActiveGroups() {
+  try {
+    if (!chrome.tabGroups) return;
+    const windows = await chrome.windows.getAll({ populate: false });
+    const entries = {};
+    for (const win of windows) {
+      const [activeTab] = await chrome.tabs.query({ active: true, windowId: win.id });
+      const groupId = activeTab?.groupId ?? -1;
+      entries[`pk_active_group_${win.id}`] = groupId;
+    }
+    if (Object.keys(entries).length > 0) {
+      await chrome.storage.session.set(entries);
+    }
+  } catch (error) {
+    console.error("[PK Shortcuts] INIT_ACTIVE_GROUPS failed:", error);
   }
 }
