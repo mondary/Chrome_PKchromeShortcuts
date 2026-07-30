@@ -3,7 +3,7 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SRC_DIR="$ROOT_DIR/src"
-OUT_DIR="$ROOT_DIR/extension"
+OUT_DIR="$ROOT_DIR/release"
 
 if [[ ! -f "$SRC_DIR/manifest.json" ]]; then
   echo "Missing manifest: $SRC_DIR/manifest.json" >&2
@@ -11,8 +11,8 @@ if [[ ! -f "$SRC_DIR/manifest.json" ]]; then
 fi
 
 VERSION="$(node -e "const fs=require('fs'); const m=JSON.parse(fs.readFileSync('$SRC_DIR/manifest.json','utf8')); process.stdout.write(m.version)")"
-BASENAME="${RELEASE_BASENAME:-pk-shortcuts}"
-ZIP_FILE="$OUT_DIR/${BASENAME}-${VERSION}.zip"
+BASENAME="${RELEASE_BASENAME:-PK-Chrome-Shortcuts}"
+ZIP_FILE="$OUT_DIR/${BASENAME}-v${VERSION}.zip"
 
 mkdir -p "$OUT_DIR"
 

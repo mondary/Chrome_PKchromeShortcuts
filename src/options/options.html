@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PK Shortcuts · Options</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="../icon.png" alt="" class="brand-icon" />
+      <div>
+        <h1 class="brand-title">PK Shortcuts</h1>
+        <p class="brand-sub">Options &amp; features</p>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <button id="theme-toggle" class="icon-btn" type="button" title="Basculer jour / nuit" aria-label="Basculer le thème">
+        <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <path fill="currentColor" d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" />
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <g fill="currentColor">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" />
+          </g>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar">
+      <nav class="nav">
+        <button class="nav-item active" type="button" data-target="features">
+          <span class="nav-emoji">⚡</span>
+          <span class="nav-label">Features</span>
+        </button>
+        <button class="nav-item" type="button" data-target="cleaner">
+          <span class="nav-emoji">🧹</span>
+          <span class="nav-label">URL Cleaner</span>
+        </button>
+        <button class="nav-item" type="button" data-target="dedup">
+          <span class="nav-emoji">♻️</span>
+          <span class="nav-label">Tab Dedup</span>
+        </button>
+        <button class="nav-item" type="button" data-target="translate">
+          <span class="nav-emoji">🌐</span>
+          <span class="nav-label">Traduction</span>
+        </button>
+        <button class="nav-item" type="button" data-target="backup">
+          <span class="nav-emoji">💾</span>
+          <span class="nav-label">Sauvegarde</span>
+        </button>
+        <button class="nav-item" type="button" data-target="about">
+          <span class="nav-emoji">ℹ️</span>
+          <span class="nav-label">À propos</span>
+        </button>
+      </nav>
+      <div class="sidebar-footer">
+        <span class="version">v<span id="ext-version"></span></span>
+      </div>
+    </aside>
+
+    <!-- ============ CONTENT ============ -->
+    <main class="content">
+
+      <!-- ============ PAGE: FEATURES ============ -->
+      <section class="page active" id="page-features" data-page="features">
+        <header class="page-head">
+          <h2 class="page-title">Features</h2>
+          <p class="page-hint">Active ou désactive les comportements globaux.</p>
+        </header>
+
+        <div class="card">
+          <div class="card-body">
+            <label class="row" for="ft-autocopy">
+              <span class="row-text">
+                <span class="row-label">Auto-copy à la sélection</span>
+                <span class="row-desc">Copie automatiquement tout texte sélectionné après 1,5 s.</span>
+              </span>
+              <input class="toggle" type="checkbox" id="ft-autocopy" data-key="autoCopyEnabled" />
+            </label>
+
+            <label class="row" for="ft-split">
+              <span class="row-text">
+                <span class="row-label">Gesture Split (Cmd+Option+Click)</span>
+                <span class="row-desc">Ouvre un lien dans une fenêtre coupée en deux.</span>
+              </span>
+              <input class="toggle" type="checkbox" id="ft-split" data-key="feature_split_gesture" />
+            </label>
+
+            <label class="row" for="ft-nav">
+              <span class="row-text">
+                <span class="row-label">Hotkeys navigation tabs (Cmd+Option+←/→)</span>
+                <span class="row-desc">Navigation rapide entre onglets via touches.</span>
+              </span>
+              <input class="toggle" type="checkbox" id="ft-nav" data-key="feature_tab_nav_hotkeys" />
+            </label>
+
+            <label class="row" for="ft-badge">
+              <span class="row-text">
+                <span class="row-label">Badge décompte de tabs</span>
+                <span class="row-desc">Affiche le nombre total d'onglets ouverts sur l'icône.</span>
+              </span>
+              <input class="toggle" type="checkbox" id="ft-badge" data-key="feature_badge_tab_count" />
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PAGE: URL CLEANER ============ -->
+      <section class="page" id="page-cleaner" data-page="cleaner">
+        <header class="page-head">
+          <h2 class="page-title">URL Cleaner</h2>
+          <p class="page-hint">
+            Nettoie les URLs de leur tracking. Raccourci suggéré : Cmd+Shift+U.
+          </p>
+        </header>
+
+        <div class="card">
+          <div class="card-body">
+            <label class="row" for="uc-enabled">
+              <span class="row-text">
+                <span class="row-label">URL Cleaner activé</span>
+                <span class="row-desc">Le raccourci copie l'URL nettoyée dans le presse-papier.</span>
+              </span>
+              <input class="toggle" type="checkbox" id="uc-enabled" data-key="feature_url_cleaner" />
+            </label>
+
+            <div class="row row-stack">
+              <span class="row-text">
+                <span class="row-label">Stratégie de cleaning</span>
+                <span class="row-desc">Choisis le niveau de nettoyage appliqué.</span>
+              </span>
+              <div class="radio-grid" id="uc-mode">
+                <label class="radio"><input type="radio" name="uc-mode" value="strict" /><span><b>Strict</b><br /><small>Vire tout après <code>?</code> et <code>#</code></small></span></label>
+                <label class="radio"><input type="radio" name="uc-mode" value="balanced" /><span><b>Balanced</b><br /><small>Vire tracking connu, garde fonctionnels</small></span></label>
+                <label class="radio"><input type="radio" name="uc-mode" value="light" /><span><b>Light</b><br /><small>UTM + fbclid + gclid + trk seulement</small></span></label>
+                <label class="radio"><input type="radio" name="uc-mode" value="custom" /><span><b>Custom</b><br /><small>Choix par source</small></span></label>
+              </div>
+            </div>
+
+            <div class="row row-stack" id="uc-custom-wrap" hidden>
+              <span class="row-text">
+                <span class="row-label">Sources à nettoyer (Custom)</span>
+                <span class="row-desc">Coche les groupes de params à virer.</span>
+              </span>
+              <div class="checkbox-grid" id="uc-sources"></div>
+
+              <label class="row-text row-text-wide" for="uc-custom-params" style="margin-top:14px">
+                <span class="row-label">Params personnalisés</span>
+                <span class="row-desc">Virgule ou espace comme séparateur.</span>
+              </label>
+              <input class="text-input" type="text" id="uc-custom-params" placeholder="ex: foo, bar, baz" />
+            </div>
+
+            <div class="row row-stack">
+              <span class="row-text">
+                <span class="row-label">Testeur en direct</span>
+                <span class="row-desc">Colle une URL, vois le résultat nettoyé.</span>
+              </span>
+              <input class="text-input" type="url" id="uc-test-input" placeholder="https://www.linkedin.com/jobs/view/4444331821/?trk=…&amp;refId=…&amp;trackingId=…" />
+              <div class="uc-output">
+                <output id="uc-test-output" class="uc-result">—</output>
+                <button id="uc-copy" class="primary-btn" type="button" disabled>Copier</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PAGE: TAB DEDUP ============ -->
+      <section class="page" id="page-dedup" data-page="dedup">
+        <header class="page-head">
+          <h2 class="page-title">Tab Deduplicator</h2>
+          <p class="page-hint">
+            Détecte et regroupe les onglets ouverts sur la même URL. Raccourci suggéré : Cmd+Shift+K.
+          </p>
+        </header>
+
+        <div class="card">
+          <div class="card-body">
+            <div class="dedup-toolbar">
+              <button id="dedup-scan" class="primary-btn" type="button">Scanner les doublons</button>
+              <span id="dedup-summary" class="dedup-summary"></span>
+            </div>
+
+            <div id="dedup-list" class="dedup-list"></div>
+
+            <div id="dedup-actions" class="dedup-actions" hidden>
+              <button id="dedup-all-oldest" class="ghost-btn" type="button">Tout garder le + ancien</button>
+              <button id="dedup-all-active" class="ghost-btn" type="button">Tout garder l'actif</button>
+              <button id="dedup-close" class="danger-btn" type="button">Fermer la sélection</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PAGE: ABOUT ============ -->
+      <section class="page" id="page-about" data-page="about">
+        <header class="page-head">
+          <h2 class="page-title">À propos</h2>
+          <p class="page-hint">Infos, liens utiles et configuration des raccourcis.</p>
+        </header>
+
+        <div class="card">
+          <div class="card-body">
+            <div class="about-row">
+              <span class="row-label">Extension</span>
+              <span class="about-value">PK Chrome Shortcuts · v<span id="about-version"></span></span>
+            </div>
+            <div class="about-row">
+              <span class="row-label">Raccourcis clavier</span>
+              <button id="open-shortcuts" class="ghost-btn" type="button">chrome://extensions/shortcuts →</button>
+            </div>
+            <div class="about-row">
+              <span class="row-label">Aide / Documentation</span>
+              <a class="ghost-btn" href="https://github.com/" target="_blank" rel="noreferrer">GitHub →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PAGE: TRANSLATE ============ -->
+      <section class="page" id="page-translate" data-page="translate">
+        <header class="page-head">
+          <h2 class="page-title">Traduction</h2>
+          <p class="page-hint">
+            Traduit le texte sélectionné à la volée. Raccourci suggéré : Cmd+Shift+T.
+          </p>
+        </header>
+
+        <div class="card">
+          <div class="card-body">
+            <label class="row" for="tr-enabled">
+              <span class="row-text">
+                <span class="row-label">Traduction activée</span>
+                <span class="row-desc">Affiche la traduction à la sélection ou via raccourci.</span>
+              </span>
+              <input class="toggle" type="checkbox" id="tr-enabled" data-key="feature_translate" />
+            </label>
+
+            <div class="row row-stack">
+              <span class="row-text">
+                <span class="row-label">Déclencheur</span>
+                <span class="row-desc">Comment la traduction doit apparaître.</span>
+              </span>
+              <div class="radio-grid" id="tr-trigger">
+                <label class="radio"><input type="radio" name="tr-trigger" value="auto" /><span><b>Auto</b><br /><small>Popup après 600 ms</small></span></label>
+                <label class="radio"><input type="radio" name="tr-trigger" value="manual" /><span><b>Manuel</b><br /><small>Raccourci clavier seulement</small></span></label>
+              </div>
+            </div>
+
+            <div class="row row-stack">
+              <span class="row-text">
+                <span class="row-label">Langue cible</span>
+                <span class="row-desc">Langue vers laquelle traduire.</span>
+              </span>
+              <select id="tr-target-lang" class="text-input select-input">
+                <option value="auto">Auto (langue navigateur)</option>
+                <option value="fr">Français</option>
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="de">Deutsch</option>
+                <option value="it">Italiano</option>
+                <option value="pt">Português</option>
+                <option value="nl">Nederlands</option>
+                <option value="pl">Polski</option>
+                <option value="ru">Русский</option>
+                <option value="zh-CN">中文</option>
+                <option value="ja">日本語</option>
+                <option value="ar">العربية</option>
+                <option value="ko">한국어</option>
+              </select>
+            </div>
+
+            <div class="row row-stack">
+              <span class="row-text">
+                <span class="row-label">API de traduction</span>
+                <span class="row-desc">Moteur utilisé pour les requêtes.</span>
+              </span>
+              <div class="radio-grid" id="tr-api">
+                <label class="radio"><input type="radio" name="tr-api" value="google_mymemory" /><span><b>Google + MyMemory</b><br /><small>Google avec fallback automatique</small></span></label>
+                <label class="radio"><input type="radio" name="tr-api" value="mymemory_only" /><span><b>MyMemory only</b><br /><small>Stable mais quota limité</small></span></label>
+              </div>
+            </div>
+
+            <div class="row row-stack">
+              <span class="row-text">
+                <span class="row-label">Testeur</span>
+                <span class="row-desc">Tape un texte pour voir la traduction.</span>
+              </span>
+              <input class="text-input" type="text" id="tr-test-input" placeholder="Hello world, this is a test" />
+              <div class="uc-output">
+                <output id="tr-test-output" class="uc-result">—</output>
+                <button id="tr-test-btn" class="primary-btn" type="button" disabled>Traduire</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PAGE: BACKUP ============ -->
+      <section class="page" id="page-backup" data-page="backup">
+        <header class="page-head">
+          <h2 class="page-title">Sauvegarde</h2>
+          <p class="page-hint">Import / export / reset de ta configuration.</p>
+        </header>
+
+        <div class="card">
+          <div class="card-body">
+            <div class="info-banner">
+              <span class="info-emoji">ℹ️</span>
+              <div>
+                <strong>Chrome sync actif.</strong> Tes réglages sont déjà synchronisés
+                entre tes appareils Chrome connectés. L'export fichier est utile pour
+                migration, backup ou partage.
+              </div>
+            </div>
+
+            <div class="row row-stack">
+              <span class="row-text">
+                <span class="row-label">Actions</span>
+                <span class="row-desc">Export / Import / Reset.</span>
+              </span>
+              <div class="backup-actions">
+                <button id="bk-export" class="primary-btn" type="button">⬇ Exporter en JSON</button>
+                <button id="bk-import" class="ghost-btn" type="button">⬆ Importer un JSON</button>
+                <input type="file" id="bk-import-file" accept="application/json,.json" hidden />
+                <button id="bk-reset" class="danger-btn" type="button">↺ Réinitialiser</button>
+              </div>
+            </div>
+
+            <div class="row row-stack">
+              <span class="row-text">
+                <span class="row-label">Aperçu de la config actuelle</span>
+                <span class="row-desc">Read-only, ce qui sera exporté.</span>
+              </span>
+              <pre class="config-preview" id="bk-preview"><code>…</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span class="saved-indicator" id="saved-indicator">Sauvegardé</span>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../lib/url-cleaner.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

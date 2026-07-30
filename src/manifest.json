@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "__MSG_extName__",
   "short_name": "PK-Labs Keys",
-  "version": "1.29",
+  "version": "1.2026.32",
   "description": "__MSG_extDescription__",
   "icons": {
     "16": "icon.png",
@@ -16,7 +16,8 @@
     "activeTab",
     "scripting",
     "storage",
-    "clipboardWrite"
+    "clipboardWrite",
+    "notifications"
   ],
   "host_permissions": [
     "<all_urls>"
@@ -27,6 +28,21 @@
   "action": {
     "default_title": "__MSG_extName__"
   },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "lib/url-cleaner.js",
+        "lib/translate.js",
+        "options/options.js",
+        "options/options.css"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
   "commands": {
     "a01-open-chrome-bookmarks": {
       "description": "__MSG_cmd_open_chrome_bookmarks_desc__"
@@ -240,6 +256,15 @@
     },
     "c16-toggle-autocopy": {
       "description": "__MSG_cmd_toggle_autocopy_desc__"
+    },
+    "c17-copy-cleaned-url": {
+      "description": "__MSG_cmd_copy_cleaned_url_desc__"
+    },
+    "c18-dedup-tabs": {
+      "description": "__MSG_cmd_dedup_tabs_desc__"
+    },
+    "c19-translate-selection": {
+      "description": "__MSG_cmd_translate_selection_desc__"
     }
   },
   "content_scripts": [

@@ -1,3 +1,6 @@
+importScripts("lib/url-cleaner.js");
+importScripts("lib/translate.js");
+
 const SPLIT_RATIO = 0.5;
 const MIN_SPLIT_HEIGHT = 600;
 const windowHistory = new Map();
@@ -56,11 +59,15 @@ scheduleBadgeRefresh();
 const actionApi = chrome?.action || chrome?.browserAction;
 if (actionApi?.onClicked) {
   actionApi.onClicked.addListener(() => {
-    void openChromeUrl("chrome://extensions/shortcuts");
+    if (chrome.runtime.openOptionsPage) {
+      chrome.runtime.openOptionsPage();
+    } else {
+      void openChromeUrl("chrome://extensions/shortcuts");
+    }
   });
 }
 
-chrome.runtime.onMessage.addListener((message, sender) => {
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (!message || !message.type) {
     return;
   }
@@ -82,8 +89,37 @@ chrome.runtime.onMessage.addListener((message, sender) => {
 
   if (message.type === "SELECT_NEXT_TAB") {
     selectAdjacentTab(1);
+    return;
+  }
+
+  if (message.type === "OPTIONS_UPDATED") {
+    scheduleBadgeRefresh();
+    return;
+  }
+
+  if (message.type === "TRANSLATE_REQUEST" && typeof message.text === "string") {
+    if (message.inline) {
+      // Options page test runner expects a direct response
+      void translateInline(message.text, sendResponse);
+      return true; // keep channel open for async sendResponse
+    }
+    translateForContentScript(message.text, sender.tab?.id);
   }
 });
+
+async function translateInline(text, sendResponse) {
+  try {
+    const config = await getTranslateConfig();
+    if (!config.feature_translate) {
+      sendResponse({ error: "disabled" });
+      return;
+    }
+    const result = await Translator.translate(text, config.translate_target_lang, config.translate_api);
+    sendResponse({ ok: true, result });
+  } catch (err) {
+    sendResponse({ error: String(err?.message || err) });
+  }
+}
 
 chrome.commands.onCommand.addListener(async (command) => {
   if (command === "c14-detach-current-tab") {
@@ -93,6 +129,21 @@ chrome.commands.onCommand.addListener(async (command) => {
 
   if (command === "c16-toggle-autocopy") {
     await toggleAutoCopy();
+    return;
+  }
+
+  if (command === "c17-copy-cleaned-url") {
+    await copyCleanedActiveTabUrl();
+    return;
+  }
+
+  if (command === "c18-dedup-tabs") {
+    await dedupTabsAuto();
+    return;
+  }
+
+  if (command === "c19-translate-selection") {
+    await triggerTranslateSelection();
     return;
   }
 
@@ -751,11 +802,20 @@ async function refreshTabCountBadge() {
       return;
     }
 
+    const stored = await chrome.storage.sync.get({
+      autoCopyEnabled: true,
+      feature_badge_tab_count: true
+    });
+
+    if (!stored.feature_badge_tab_count) {
+      await badgeApi.setBadgeText({ text: "" });
+      return;
+    }
+
     const tabs = await chrome.tabs.query({});
     const count = tabs.length;
     const text = count > 999 ? "999+" : String(count);
-    const { autoCopyEnabled } = await chrome.storage.sync.get({ autoCopyEnabled: true });
-    const color = autoCopyEnabled ? BADGE_BG_COLOR : "#B71C1C";
+    const color = stored.autoCopyEnabled ? BADGE_BG_COLOR : "#B71C1C";
     await badgeApi.setBadgeBackgroundColor({ color });
     await badgeApi.setBadgeText({ text });
   } catch (error) {
@@ -809,5 +869,195 @@ async function toggleAutoCopy() {
     }
   } catch (error) {
     console.error("[PK Shortcuts] TOGGLE_AUTOCOPY failed:", error);
+  }
+}
+
+async function getUrlCleanerConfig() {
+  const stored = await chrome.storage.sync.get({
+    feature_url_cleaner: true,
+    url_cleaner_mode: "balanced",
+    url_cleaner_custom_sources: [
+      "utm", "facebook", "googleads", "linkedin", "microsoft",
+      "mailchimp", "instagram", "youtube", "hubspot", "yandex",
+      "aliexpress", "tiktok", "twitter", "generic"
+    ],
+    url_cleaner_custom_params: ""
+  });
+  return {
+    enabled: stored.feature_url_cleaner,
+    mode: stored.url_cleaner_mode,
+    customSources: stored.url_cleaner_custom_sources,
+    customParams: stored.url_cleaner_custom_params
+  };
+}
+
+async function copyCleanedActiveTabUrl() {
+  try {
+    const config = await getUrlCleanerConfig();
+    if (!config.enabled) {
+      await flashBadge("OFF", "#B71C1C");
+      return;
+    }
+
+    const [activeTab] = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
+    if (!activeTab?.url) {
+      return;
+    }
+
+    const cleaned = URLCleaner.clean(activeTab.url, config);
+
+    if (cleaned === activeTab.url) {
+      await flashBadge("0", "#9E9E9E");
+      return;
+    }
+
+    await writeClipboardViaTab(activeTab.id, cleaned);
+    await flashBadge("✓", "#2E7D32");
+  } catch (error) {
+    console.error("[PK Shortcuts] COPY_CLEANED_URL failed:", error);
+    await flashBadge("ERR", "#B71C1C");
+  }
+}
+
+async function writeClipboardViaTab(tabId, text) {
+  if (typeof tabId !== "number") {
+    throw new Error("No active tab id for clipboard write");
+  }
+  try {
+    await chrome.scripting.executeScript({
+      target: { tabId },
+      func: (value) => navigator.clipboard.writeText(value),
+      args: [text]
+    });
+  } catch (err) {
+    const message = String(err?.message || err || "").toLowerCase();
+    if (message.includes("cannot access") || message.includes("chrome://") || message.includes("contentscript")) {
+      throw new Error(`Clipboard write blocked for tab ${tabId}: ${message}`);
+    }
+    throw err;
+  }
+}
+
+async function flashBadge(text, color) {
+  const badgeApi = getBadgeApi();
+  if (!badgeApi) return;
+  try {
+    await badgeApi.setBadgeBackgroundColor({ color });
+    await badgeApi.setBadgeText({ text });
+    setTimeout(() => {
+      void refreshTabCountBadge();
+    }, 1100);
+  } catch {}
+}
+
+async function dedupTabsAuto() {
+  try {
+    const tabs = await chrome.tabs.query({});
+    const groups = new Map();
+    for (const tab of tabs) {
+      if (!tab.url) continue;
+      const key = URLCleaner.normalizeForDedup(tab.url);
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(tab);
+    }
+
+    const toClose = [];
+    let groupCount = 0;
+
+    for (const [, groupTabs] of groups.entries()) {
+      if (groupTabs.length <= 1) continue;
+      groupCount++;
+      const activeTab = groupTabs.find((t) => t.active);
+      const keepTab = activeTab || groupTabs.slice().sort((a, b) => (a.id || 0) - (b.id || 0))[0];
+      for (const tab of groupTabs) {
+        if (tab.id !== keepTab.id && typeof tab.id === "number") {
+          toClose.push(tab.id);
+        }
+      }
+    }
+
+    if (toClose.length === 0) {
+      await flashBadge("0", "#9E9E9E");
+      return;
+    }
+
+    await chrome.tabs.remove(toClose);
+    await flashBadge(String(toClose.length), "#2E7D32");
+    await notifyDedupResult(groupCount, toClose.length);
+  } catch (error) {
+    console.error("[PK Shortcuts] DEDUP_TABS failed:", error);
+    await flashBadge("ERR", "#B71C1C");
+  }
+}
+
+async function notifyDedupResult(groupCount, closedCount) {
+  try {
+    if (typeof chrome?.notifications?.create !== "function") return;
+    await chrome.notifications.create({
+      type: "basic",
+      iconUrl: "icon.png",
+      title: "PK Shortcuts · Dedup",
+      message: `${closedCount} doublon(s) fermé(s) dans ${groupCount} groupe(s).`
+    });
+  } catch {}
+}
+
+async function getTranslateConfig() {
+  return await chrome.storage.sync.get({
+    feature_translate: true,
+    translate_target_lang: "auto",
+    translate_trigger: "auto",
+    translate_api: "google_mymemory"
+  });
+}
+
+async function translateForContentScript(text, senderTabId) {
+  try {
+    const config = await getTranslateConfig();
+    if (!config.feature_translate) {
+      sendTranslationResult(senderTabId, { error: "disabled" });
+      return;
+    }
+    const result = await Translator.translate(text, config.translate_target_lang, config.translate_api);
+    sendTranslationResult(senderTabId, { ok: true, result });
+  } catch (err) {
+    console.error("[PK Shortcuts] TRANSLATE_REQUEST failed:", err);
+    sendTranslationResult(senderTabId, { error: String(err?.message || err) });
+  }
+}
+
+function sendTranslationResult(tabId, payload) {
+  if (typeof tabId !== "number") return;
+  try {
+    chrome.tabs.sendMessage(tabId, { type: "TRANSLATE_RESULT", ...payload });
+  } catch {}
+}
+
+async function triggerTranslateSelection() {
+  try {
+    const config = await getTranslateConfig();
+    if (!config.feature_translate) {
+      await flashBadge("OFF", "#B71C1C");
+      return;
+    }
+    const [activeTab] = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
+    if (!activeTab?.id) return;
+    const [selectionResult] = await chrome.scripting.executeScript({
+      target: { tabId: activeTab.id },
+      func: () => {
+        const sel = window.getSelection();
+        return sel ? sel.toString().trim() : "";
+      }
+    });
+    const text = selectionResult?.result;
+    if (!text) {
+      await flashBadge("0", "#9E9E9E");
+      return;
+    }
+    const result = await Translator.translate(text, config.translate_target_lang, config.translate_api);
+    sendTranslationResult(activeTab.id, { ok: true, result });
+  } catch (err) {
+    console.error("[PK Shortcuts] TRIGGER_TRANSLATE failed:", err);
+    await flashBadge("ERR", "#B71C1C");
   }
 }

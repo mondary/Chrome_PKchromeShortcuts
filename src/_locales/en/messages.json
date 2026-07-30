@@ -205,5 +205,14 @@
   },
   "cmd_toggle_autocopy_desc": {
     "message": "📋 Toggle automatic copy on selection · Chrome: Not set · 🎯 Suggestion: Cmd+Shift+C"
+  },
+  "cmd_copy_cleaned_url_desc": {
+    "message": "🧹 Copy current URL cleaned of tracking · Chrome: Not set · 🎯 Suggestion: Cmd+Shift+U"
+  },
+  "cmd_dedup_tabs_desc": {
+    "message": "♻️ Auto-close duplicate tabs (keep active or oldest) · Chrome: Not set · 🎯 Suggestion: Cmd+Shift+K"
+  },
+  "cmd_translate_selection_desc": {
+    "message": "🌐 Translate current selection · Chrome: Not set · 🎯 Suggestion: Cmd+Shift+T"
   }
 }

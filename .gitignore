@@ -4,7 +4,7 @@
 .DS_Store
 secrets/*
 !secrets/.gitignore
-extension/*.zip
-extension/*.crx
-extension/*.pem
+release/*.zip
+release/*.crx
+release/*.pem
 .agent
