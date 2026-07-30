@@ -6,7 +6,8 @@ const MIN_SPLIT_HEIGHT = 600;
 const windowHistory = new Map();
 const BADGE_BG_COLOR = "#0B0B0B";
 let badgeRefreshTimer = null;
-let windowGroupHistory = new Map();
+const windowGroupHistory = new Map();
+const windowActiveGroup = new Map();
 
 chrome.runtime.onInstalled.addListener(() => {
   logCommandShortcuts();
@@ -20,13 +21,12 @@ chrome.runtime.onStartup.addListener(() => {
 
 chrome.tabs.onActivated.addListener(async ({ tabId, windowId }) => {
   const previous = windowHistory.get(windowId);
-  if (!previous) {
+  if (previous) {
+    if (previous.currentTabId !== tabId) {
+      windowHistory.set(windowId, { currentTabId: tabId, lastTabId: previous.currentTabId });
+    }
+  } else {
     windowHistory.set(windowId, { currentTabId: tabId, lastTabId: null });
-    return;
-  }
-
-  if (previous.currentTabId !== tabId) {
-    windowHistory.set(windowId, { currentTabId: tabId, lastTabId: previous.currentTabId });
   }
 
   // Auto-collapse group feature
@@ -1077,32 +1077,29 @@ async function handleAutoCollapseGroups(tabId, windowId) {
     const stored = await chrome.storage.sync.get({ feature_auto_collapse_groups: true });
     if (!stored.feature_auto_collapse_groups) return;
 
+    if (!chrome.tabGroups) return;
+
     const tab = await chrome.tabs.get(tabId);
-    if (!tab?.groupId || tab.groupId === chrome.tabGroups.TAB_GROUP_ID_NONE) {
-      // Not in a group, or special case
-      return;
-    }
+    const currentGroupId = tab?.groupId ?? -1;
 
-    const currentGroupId = tab.groupId;
+    const previousGroupId = windowActiveGroup.get(windowId);
 
-    // Track this tab in the group history for this window
-    const windowGroups = windowGroupHistory.get(windowId) || new Set();
-    const previousGroups = [...windowGroups].filter(groupId => groupId !== currentGroupId);
-    windowGroups.add(currentGroupId);
-    windowGroupHistory.set(windowId, windowGroups);
-
-    // Collapse previous groups
-    for (const groupId of previousGroups) {
+    if (
+      typeof previousGroupId === "number" &&
+      previousGroupId > -1 &&
+      previousGroupId !== currentGroupId
+    ) {
       try {
-        const group = await chrome.tabGroups.get(groupId);
+        const group = await chrome.tabGroups.get(previousGroupId);
         if (group && group.windowId === windowId && !group.collapsed) {
-          await chrome.tabGroups.update(groupId, { collapsed: true });
+          await chrome.tabGroups.update(previousGroupId, { collapsed: true });
         }
-      } catch (error) {
+      } catch {
         // Group might not exist anymore, ignore
-        console.warn(`[PK Shortcuts] Could not collapse group ${groupId}:`, error);
       }
     }
+
+    windowActiveGroup.set(windowId, currentGroupId);
   } catch (error) {
     console.error("[PK Shortcuts] AUTO_COLLAPSE_GROUPS failed:", error);
   }
