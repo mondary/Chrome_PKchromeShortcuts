@@ -1074,33 +1074,17 @@ async function triggerTranslateSelection() {
 async function handleAutoCollapseGroups(tabId, windowId) {
   try {
     const stored = await chrome.storage.sync.get({ feature_auto_collapse_groups: true });
-    const dbg = (msg) => {
-      console.log("[PK Debug]", msg);
-      if (chrome.notifications?.create) {
-        chrome.notifications.create({ type: "basic", iconUrl: "icon.png", title: "PK Debug", message: msg });
-      }
-    };
-
-    if (!stored.feature_auto_collapse_groups) {
-      dbg("feature OFF");
-      return;
-    }
-
-    if (!chrome.tabGroups?.query || !chrome.tabGroups?.update) {
-      dbg("tabGroups API indispo");
-      return;
-    }
+    if (!stored.feature_auto_collapse_groups) return;
+    if (!chrome.tabGroups?.query || !chrome.tabGroups?.update) return;
 
     const tab = await chrome.tabs.get(tabId);
     const currentGroupId = tab?.groupId ?? -1;
 
     const groups = await chrome.tabGroups.query({ windowId });
-    const expanded = groups.filter((g) => g.id !== currentGroupId && !g.collapsed);
-
-    dbg(`tab=${tabId} group=${currentGroupId} groups=${groups.length} toCollapse=${expanded.length}`);
-
-    for (const group of expanded) {
-      await chrome.tabGroups.update(group.id, { collapsed: true });
+    for (const group of groups) {
+      if (group.id !== currentGroupId && !group.collapsed) {
+        await chrome.tabGroups.update(group.id, { collapsed: true });
+      }
     }
   } catch (error) {
     console.error("[PK Shortcuts] AUTO_COLLAPSE_GROUPS failed:", error);

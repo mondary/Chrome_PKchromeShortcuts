@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "__MSG_extName__",
   "short_name": "PK-Labs Keys",
-  "version": "1.2026.37",
+  "version": "1.2026.38",
   "description": "__MSG_extDescription__",
   "icons": {
     "16": "icon.png",
